@@ -1,0 +1,370 @@
+@import "colors"
+@import "reset"
+@import "vars"
+@import "breakpoints"
+
+
+.container
+  max-width: 1440px
+  margin: 0 auto
+.iframe
+  width: 100%
+  height: 800px
+  border: none
+.img
+  width: 100%
+  height: auto
+  object-fit: cover
+.header-top
+  background: var(--headerTop)
+  &-link
+    color: var(--headerTopLink)
+
+.customBtn
+  color: var(--textColor)
+  &.roundedBtn
+    border: 1px solid var(--buttonBorder)
+    & .p-button-label
+      font-weight: normal
+  &.roundedBtn1
+    border: 1px solid var(--buttonBorder)
+    border-radius: 8px
+    width: 100%
+    & .p-button-label
+      font-weight: normal
+  &.roundedBtn2
+    border: 1px solid var(--buttonBorder)
+    border-radius: 8px
+    background: transparent
+    //width: 100%
+    & .p-button-label
+      font-weight: normal
+.faq
+  max-width: 1000px
+  margin: 0 auto
+.gallery
+  height: 640px
+  &-img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.p-tabview-nav
+  background: var(--backgroundColor)
+  border-bottom: 1px solid var(--buttonBorder)
+.p-tabview-panels
+  background: var(--backgroundColor)
+  padding: 16px 0
+.p-tabview-nav-link
+  background: var(--backgroundColor)
+  color: var(--textColorGrey)
+  border-color: transparent transparent var(--buttonBorder) transparent
+.p-tabview-title
+  font-weight: normal
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link
+  color: var(--textColor)
+  border-color: var(--headerTop)
+.p-accordion-header-action
+  background: var(--backgroundColor)
+  color: var(--textColor)
+  border: none
+.p-accordion-content
+  background: var(--backgroundColor)
+  color: var(--textColor)
+  border: none
+
+
+.big-card
+  position: relative
+  border-radius: 14px
+  padding: 24px
+  min-height: 460px
+  cursor: pointer
+  z-index: 1
+  overflow: hidden
+  border: 1px solid var(--bigCardBorder)
+  &::before
+    position: absolute
+    content: ''
+    width: 100%
+    height: 100%
+    background: var(--bigCardBg)
+    z-index: -1
+    left: 0
+    opacity: 1
+    top: 0
+    transition: all .2s linear
+  &::after
+    position: absolute
+    content: ''
+    width: 100%
+    height: 100%
+    background: var(--bigCardBgHover)
+    z-index: -1
+    left: 0
+    opacity: 0
+    top: 0
+    transition: all .2s linear
+  &:hover
+    &::before
+      opacity: 0
+    &::after
+      opacity: 1
+
+  &-image
+    position: absolute
+    width: 320px
+    height: 260px
+    object-fit: contain
+    right: 40px
+    bottom: 40px
+  &-title
+    color: var(--textColor)
+    font-size: 32px
+    font-weight: 500
+  &-subtitle
+    color: var(--textColorGrey)
+    font-size: 20px
+    font-weight: 500
+
+.card
+  &-image
+    background: var(--bigCardBg)
+    border: 1px solid var(--bigCardBorder)
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 10px
+    margin-bottom: 16px
+    img
+      width: 80%
+      height: auto
+      object-fit: contain
+  & .roundedBtn1
+    transition: all 0.2s linear
+    opacity: 0
+  &:hover
+    & .roundedBtn1
+      opacity: 1
+
+
+.footer
+  background: white
+  padding: 40px 0
+  color: #000
+  &-links
+    display: grid
+    grid-template-columns: 1fr
+    grid-gap: 16px
+
+.separator
+  width: 100%
+  height: 1px
+  background: #cccccc
+
+.breadbrumbs
+  display: flex
+  font-weight: 500
+  a
+    color: var(--textColorGrey)
+    position: relative
+    &::after
+      content: '/'
+      margin: 0 10px
+
+
+.small-card
+  position: relative
+  border-radius: 14px
+  padding: 24px
+  min-height: 460px
+  cursor: pointer
+  z-index: 1
+  overflow: hidden
+  border: 1px solid var(--bigCardBorder)
+  & .alt_img
+    display: none
+  img
+    width: 100%
+    height: 400px
+    object-fit: cover
+    display: block
+    margin-bottom: 16px
+    border-radius: 20px
+
+  &::before
+    position: absolute
+    content: ''
+    width: 100%
+    height: 100%
+    background: var(--bigCardBg)
+    z-index: -1
+    left: 0
+    opacity: 1
+    top: 0
+    transition: opacity .2s linear
+  &::after
+    position: absolute
+    content: ''
+    width: 100%
+    height: 100%
+    background: var(--smallCardBgHover)
+    z-index: -1
+    left: 0
+    opacity: 0
+    top: 0
+    transition: opacity .2s linear
+  &:hover
+    & .main_img
+      display: none
+    & .alt_img
+      display: block
+    &::before
+      opacity: 0
+    &::after
+      opacity: 1
+    & .roundedBtn2
+      background: white
+      color: #000
+      border-color: white
+  &-top
+    font-size: 14px
+    color: var(--textCardGrey)
+    margin-bottom: 16px
+  &-title
+    font-size: 18px
+    margin-bottom: 16px
+    color: var(--textColor)
+  &-price
+    font-weight: 600
+    margin-bottom: 16px
+    color: var(--textColor)
+
+.product-image
+  width: 100%
+  height: 100%
+  object-fit: cover
+.logo
+  width: 124px
+  height: 26px
+  object-fit: contain
+.tag
+  color: var(--tagColor)
+
+.grey-color
+  color: var(--textColorGrey)
+
+.p-paginator
+  border: none
+  background: var(--backgroundColor)
+.p-paginator-first
+  display: none
+.p-paginator-last
+  display: none
+.p-paginator-next, .p-paginator-prev
+  &:hover
+    background: rgb(194, 122, 94)
+    color: white
+    border: 1px solid rgb(194, 122, 94)
+    border-radius: 100%
+.p-paginator-page
+  border-radius: 100%
+  border: 1px solid var(--textColorGrey)
+  &:hover
+    background: rgb(194, 122, 94)
+    color: white
+    border: 1px solid rgb(194, 122, 94)
+  &.p-highlight
+    background: var(--tagColor)
+    color: white
+    border: 1px solid var(--tagColor)
+
+.grey-block
+  padding: 60px
+  background: var(--greyBlockBg)
+  border-radius: 10px
+  &-item
+    padding: 28px
+    border: 1px solid var(--greyBlockBorder)
+    border-radius: 8px
+    &.w-hover
+      cursor: pointer
+      &:hover
+        background: var(--greyBlockBg)
+        svg
+          stroke : #fff
+        & .grey-block-icon
+          background: var(--blueColor)
+  &-number
+    color: var(--blueColor)
+    margin-bottom: 70px
+    font-weight: 500
+    font-size: 48px
+  &-icon
+    background: #f2faf7
+    width: 64px
+    height: 64px
+    border-radius: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-bottom: 32px
+    svg
+      stroke : var(--blueColor)
+  &-image
+    width: 100px
+    height: 100px
+    object-fit: contain
+    display: block
+    margin-bottom: 32px
+  &-link
+    color: var(--textColorGrey)
+    &:hover
+      color: var(--tagColor)
+
+.p-dropdown
+  border: 1px solid var(--greyBlockBorder)
+  background: transparent
+  & .p-inputtext
+    border: none
+.p-inputtext
+  border: 1px solid var(--greyBlockBorder)
+  background: transparent
+  padding: 16px
+.btnBlue
+  background: var(--blueColor)
+  border-color: var(--blueColor)
+  padding: 16px 30px
+.btnLink
+  color: var(--blueColor)
+  padding: 16px 30px
+.p-galleria-item-wrapper
+  width: 100%
+
+.p-galleria-item-container
+  width: 100%
+.p-galleria-thumbnail-wrapper
+  padding-left: 10px
+.p-galleria-thumbnail-items-container
+  height: 550px !important
+.p-galleria-thumbnail-container
+  background: transparent
+  padding: 0
+.p-galleria-thumbnail-prev, .p-galleria-thumbnail-next
+  display: none
+.p-galleria-thumbnail-items
+  gap: 10px
+.p-galleria-thumbnail-item
+  overflow: unset
+  height: 100px
+
+.gallery_img
+  width: 100%
+  height: 500px
+  object-fit: contain
+.gallery_thumb
+  width: 100px
+  height: 100px
+  object-fit: contain
+  display: block
