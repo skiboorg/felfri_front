@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const cat = ref([])
 const route = useRoute()
-const category = await useFetch(`http://127.0.0.1:8000/api/shop/categories/${route.params.category_slug}`)
+const category = await useFetch(`http://79.132.139.110:8000/api/shop/categories/${route.params.category_slug}`)
 cat.value = category.data.value
 console.log(route.params.category_slug)
 </script>

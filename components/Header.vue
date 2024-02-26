@@ -6,7 +6,7 @@ const isDark = useDark()
 const toggleDark = useToggle(isDark)
 const cats = ref([])
 
-const categories = await useFetch('http://127.0.0.1:8000/api/shop/categories')
+const categories = await useFetch('http://79.132.139.110:8000/api/shop/categories')
 cats.value = categories.data.value
 </script>
 

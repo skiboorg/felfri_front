@@ -2,7 +2,7 @@
 const product = ref([])
 const route = useRoute()
 const images = ref([])
-const resp = await useFetch(`http://127.0.0.1:8000/api/shop/product/${route.params.product_slug}`)
+const resp = await useFetch(`http://79.132.139.110:8000/api/shop/product/${route.params.product_slug}`)
 product.value = resp.data.value
 
 images.value.push({

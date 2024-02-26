@@ -14,13 +14,13 @@ const images =[
   },
 ]
 const cats = ref([])
-const categories = await useFetch('http://127.0.0.1:8000/api/shop/categories')
+const categories = await useFetch('http://79.132.139.110:8000/api/shop/categories')
 cats.value = categories.data.value
 
 const { data } = await useAsyncData('products', async () => {
   return await Promise.all([
-      $fetch('http://127.0.0.1:8000/api/shop/new'),
-    $fetch('http://127.0.0.1:8000/api/shop/popular'),
+      $fetch('http://79.132.139.110:8000/api/shop/new'),
+    $fetch('http://79.132.139.110:8000/api/shop/popular'),
   ])
 })
 
