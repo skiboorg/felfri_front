@@ -1,26 +1,24 @@
 <script setup lang="ts">
-const product = ref([])
+import { useHttpRequest } from '@/composables/useHttpRequest'
 const route = useRoute()
+const {data:product} = await useHttpRequest(`/api/shop/product/${route.params.product_slug}`)
+
 const images = ref([])
-const resp = await useFetch(`http://79.132.139.110:8000/api/shop/product/${route.params.product_slug}`)
-product.value = resp.data.value
 
-images.value.push({
-  image:product.value.image_main
-})
-images.value.push({
-  image:product.value.image_alt
-})
-
-product.value.images.forEach((img)=>{
-  console.log(img)
+onBeforeMount(()=>{
   images.value.push({
-    image:img.image
+    image:product.value?.image_main
+  })
+  images.value.push({
+    image:product.value?.image_alt
+  })
+
+  product.value?.images.forEach((img)=>{
+    images.value.push({
+      image:img.image
+    })
   })
 })
-
-
-
 </script>
 
 <template>

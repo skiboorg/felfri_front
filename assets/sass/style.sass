@@ -39,6 +39,9 @@
     //width: 100%
     & .p-button-label
       font-weight: normal
+    &.selected
+      background: var(--headerTop)
+      color: var(--headerTopLink)
 .faq
   max-width: 1000px
   margin: 0 auto
@@ -161,7 +164,7 @@
 .separator
   width: 100%
   height: 1px
-  background: #cccccc
+  background: var(--buttonBorder)
 
 .breadbrumbs
   display: flex
@@ -368,3 +371,37 @@
   height: 100px
   object-fit: contain
   display: block
+.menu-grid
+  background: var(--backgroundColor)
+.menu-link
+  position: relative
+.menu-img
+  width: 100px
+  height: 100px
+  object-fit: contain
+  display: block
+  border-radius: 100%
+.menu-wrapper
+  &:hover
+    & .sub-menu
+     display: block
+    & .menu-link
+      &::after
+        position: absolute
+        content: ''
+        width: 100%
+        background: var(--blueColor)
+        height: 2px
+        left: 0
+        bottom: -30px
+
+.sub-menu
+  display: none
+  position: absolute
+  z-index: 1
+  left: 0
+  right: 0
+  top: 100px
+
+  transition: all .2s linear
+  padding-top: 30px

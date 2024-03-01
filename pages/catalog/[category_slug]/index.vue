@@ -1,20 +1,19 @@
 <script setup lang="ts">
-const cat = ref([])
+import { useHttpRequest } from '@/composables/useHttpRequest'
 const route = useRoute()
-const category = await useFetch(`http://79.132.139.110:8000/api/shop/categories/${route.params.category_slug}`)
-cat.value = category.data.value
-console.log(route.params.category_slug)
+const {data:category} = await useHttpRequest(`/api/shop/categories/${route.params.category_slug}`)
+
 </script>
 
 <template>
 <div class="container">
   <div class="breadbrumbs mb-8">
     <router-link to="/">Главная</router-link>
-    <p>{{cat.name}}</p>
+    <p>{{category.name}}</p>
   </div>
-  <p class="text-6xl mb-4">{{cat.name}}</p>
+  <p class="text-6xl mb-4">{{category.name}}</p>
   <TabView class="mb-8">
-    <TabPanel :header="subcat.name" class="mt-4" v-for="subcat in cat.sub_categories">
+    <TabPanel :header="subcat.name" class="mt-4" v-for="subcat in category.sub_categories">
 
       <div class="grid row-gap-6 p-0 mt-4">
         <div class="col-12 md:col-3" v-for="product in subcat.products">
@@ -24,7 +23,7 @@ console.log(route.params.category_slug)
             <img class="alt_img" :src="product.image_alt" alt="">
             <p class="small-card-title">{{product.name}}</p>
             <p class="small-card-price">{{product.price}} ₽</p>
-            <router-link :to="`/catalog/${cat.slug}/${product.slug}`">
+            <router-link :to="`/catalog/${category.slug}/${product.slug}`">
               <Button  outlined rounded size="small" class="customBtn roundedBtn2 w-full" label="Подробнее о товаре"/>
             </router-link>
 

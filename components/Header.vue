@@ -1,13 +1,14 @@
-<script setup lang="ts">
+<script setup lang="ts" >
+const config = useRuntimeConfig()
 import { useDark, useToggle } from '@vueuse/core'
+import { useCategories } from '@/composables/useCategories'
 
 
+const { categories } = useCategories()
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
-const cats = ref([])
 
-const categories = await useFetch('http://79.132.139.110:8000/api/shop/categories')
-cats.value = categories.data.value
+console.log(categories)
 </script>
 
 <template>
@@ -29,7 +30,29 @@ cats.value = categories.data.value
       </router-link>
 
       <div class="flex align-items-center gap-4">
-        <router-link  :to="`/catalog/${cat.slug}`" v-for="cat in cats">{{cat.name}}</router-link>
+        <div class="menu-wrapper" v-for="cat in categories">
+          <router-link class="menu-link"  :to="`/catalog/${cat.slug}`" >{{cat.name}}</router-link>
+          <div class="sub-menu">
+            <div class="separator mb-5"></div>
+            <div class="container">
+
+              <div class="grid menu-grid">
+
+                <div class="col-2 " v-for="subcat in cat.sub_categories">
+                  <router-link class="flex align-items-center gap-2" :to="`/catalog/${cat.slug}`">
+                  <img class="menu-img" :src="subcat.image" alt="">
+                  <p>{{subcat.name}}</p>
+                  </router-link>
+                </div>
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+
 
       </div>
       <div class="flex align-items-center gap-4">

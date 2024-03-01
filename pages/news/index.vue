@@ -1,4 +1,19 @@
 <script setup lang="ts">
+const config = useRuntimeConfig()
+import { useNews } from '@/composables/useNews'
+const { tags } = useNews()
+const selected_tag = ref('')
+const current_page = ref(1)
+
+const updateSelectedTag = (tag) => {
+  selected_tag.value = tag
+  current_page.value = 1
+}
+
+const url = computed(() => config.public.APIURL + `/api/news/all?tag=${selected_tag.value}&page=${current_page.value}`);
+const { data:news, pending:is_loading, refresh } = await useFetch(url)
+
+
 
 </script>
 
@@ -10,14 +25,20 @@
     </div>
     <h1 class="text-6xl mb-4 font-medium">Статьи</h1>
     <div class="flex gap-2 flex-wrap mb-6">
-      <Button  outlined rounded size="small" class="customBtn roundedBtn2" v-for="i in 20" label="#новости"/>
+
+      <Button   rounded size="small" :class="{selected:selected_tag===tag.slug}" class="customBtn roundedBtn2" v-for="tag in tags" :key="tag.id"
+               :label="`#${tag.name}`" @click='updateSelectedTag(tag.slug)'/>
     </div>
     <div class="grid">
-      <div class="col-12 md:col-4 mb-6" v-for="i in 10">
-        <img class="img" src="https://placehold.co/600x400" alt="">
-        <p class="font-medium text-xl mb-2">Заголовок</p>
-        <p class="mb-2">Lorem ipsum dolor sit amet consectetur. Eu pharetra ullamcorper sed congue...</p>
-        <p class="font-medium"> <span class="grey-color">Время чтения 5 мин | 19.02.24 |</span>  <span class="tag">#бытоваятехника</span></p>
+      <div class="col-12 md:col-4 mb-6" v-for="news_item in news.results">
+        <router-link :to="`/news/${news_item.slug}`">
+        <img class="img" :src="news_item.image" alt="">
+        <p class="font-medium text-xl mb-2">{{news_item.name}}</p>
+        <p class="mb-2">{{news_item.description}}</p>
+        <p class="font-medium"> <span class="grey-color">
+          Время чтения {{news_item.time_to_read}} | {{new Date(news_item.created).toLocaleDateString()}} |</span>
+          <span class="tag">#{{news_item.tag.name}}</span></p>
+        </router-link>
       </div>
     </div>
     <div class="">

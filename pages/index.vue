@@ -13,22 +13,18 @@ const images =[
     title: 'Title 1'
   },
 ]
-const cats = ref([])
-const categories = await useFetch('http://79.132.139.110:8000/api/shop/categories')
-cats.value = categories.data.value
+import { useCategories } from '@/composables/useCategories'
 
-const { data } = await useAsyncData('products', async () => {
-  return await Promise.all([
-      $fetch('http://79.132.139.110:8000/api/shop/new'),
-    $fetch('http://79.132.139.110:8000/api/shop/popular'),
-  ])
-})
+import { useProducts } from '@/composables/useProducts'
+
+const { categories } = useCategories()
+const { popular_products, new_products } = useProducts()
+
 
 </script>
 
 <template>
 <div class="container">
-
 
   <Galleria class="mb-8" :value="images" :autoPlay="true" :numVisible="5" :circular="true" containerClass="gallery"
             :showItemNavigators="true" :showThumbnails="false" :showItemNavigatorsOnHover="true" :showIndicators="true">
@@ -41,7 +37,7 @@ const { data } = await useAsyncData('products', async () => {
 
 
   <TabView class="mb-8">
-    <TabPanel :header="cat.name" class="mt-4" v-for="cat in cats">
+    <TabPanel :header="cat.name" class="mt-4" v-for="cat in categories">
       <div class="grid row-gap-6 p-0 mt-4">
         <div class="col-12 md:col-4" v-for="subcat in cat.sub_categories">
           <router-link :to="`/catalog/${cat.slug}`">
@@ -60,7 +56,7 @@ const { data } = await useAsyncData('products', async () => {
   </TabView>
   <p class="text-6xl mb-6">Популярные товары</p>
   <div class="grid row-gap-6 p-0 mb-8">
-    <div class="col-12 md:col-3" v-for="product in data[1]">
+    <div class="col-12 md:col-3" v-for="product in popular_products">
       <div class="card">
         <div class="card-image">
           <img :src="product.image_main" alt="">
@@ -76,7 +72,7 @@ const { data } = await useAsyncData('products', async () => {
   </div>
   <p class="text-6xl mb-6">Новинки</p>
   <div class="grid row-gap-6 p-0 mb-8">
-    <div class="col-12 md:col-3" v-for="product in data[0]">
+    <div class="col-12 md:col-3" v-for="product in new_products">
       <div class="card">
         <div class="card-image">
           <img :src="product.image_main" alt="">
