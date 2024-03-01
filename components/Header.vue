@@ -30,7 +30,7 @@ console.log(categories)
       </router-link>
 
       <div class="flex align-items-center gap-4">
-        <div class="menu-wrapper" v-for="cat in categories">
+        <div class="menu-wrapper" v-for="cat in categories?.filter(x=>x.show_at_equipment)" :key="cat.id">
           <router-link class="menu-link"  :to="`/catalog/${cat.slug}`" >{{cat.name}}</router-link>
           <div class="sub-menu">
             <div class="separator mb-5"></div>
@@ -38,7 +38,7 @@ console.log(categories)
 
               <div class="grid menu-grid">
 
-                <div class="col-2 " v-for="subcat in cat.sub_categories">
+                <div class="col-2 " v-for="subcat in cat.sub_categories" :key="subcat.id">
                   <router-link class="flex align-items-center gap-2" :to="`/catalog/${cat.slug}`">
                   <img class="menu-img" :src="subcat.image" alt="">
                   <p>{{subcat.name}}</p>
@@ -55,7 +55,7 @@ console.log(categories)
 
 
       </div>
-      <div class="flex align-items-center gap-4">
+      <div class="flex align-items-center gap-2">
         <Button text icon="pi pi-search" rounded size="small" class="customBtn"/>
         <router-link class="header-top-link" to="/support">
           <Button  outlined rounded size="small" class="customBtn roundedBtn"  label="Поддержка"/>

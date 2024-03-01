@@ -45,12 +45,10 @@
 .faq
   max-width: 1000px
   margin: 0 auto
+
 .gallery
   height: 640px
-  &-img
-    width: 100%
-    height: 100%
-    object-fit: cover
+
 
 .p-tabview-nav
   background: var(--backgroundColor)
@@ -336,11 +334,13 @@
   background: transparent
   padding: 16px
 .btnBlue
-  background: var(--blueColor)
-  border-color: var(--blueColor)
+  background: #0f66fe
+  border-color: #0f66fe
   padding: 16px 30px
 .btnLink
-  color: var(--blueColor)
+  color: white
+  background: #ec4be5
+  border-color: #ec4be5
   padding: 16px 30px
 .p-galleria-item-wrapper
   width: 100%
@@ -361,16 +361,19 @@
 .p-galleria-thumbnail-item
   overflow: unset
   height: 100px
-
+.p-galleria-content
+  align-items: start
 .gallery_img
   width: 100%
-  height: 500px
-  object-fit: contain
+  height: 550px
+  object-fit: cover
+
 .gallery_thumb
   width: 100px
   height: 100px
   object-fit: contain
   display: block
+
 .menu-grid
   background: var(--backgroundColor)
 .menu-link
@@ -405,3 +408,26 @@
 
   transition: all .2s linear
   padding-top: 30px
+
+.banner
+  position: relative
+  &-text-big
+    position: absolute
+    color: white
+    left: 20px
+    top: 40%
+    font-size: 30px
+  &-text-small
+    position: absolute
+    color: white
+    left: 20px
+    top: 50%
+
+
+
+.gallery-img-big
+ @include md-d
+    display: none
+.gallery-img-small
+  @include md-u
+    display: none

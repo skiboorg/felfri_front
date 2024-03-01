@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useHttpRequest } from '@/composables/useHttpRequest'
 const route = useRoute()
-const {data:product} = await useHttpRequest(`/api/shop/product/${route.params.product_slug}`)
+const {data:product, fetchData} = useHttp(`/api/shop/product/${route.params.product_slug}`)
+await fetchData()
+
 
 const images = ref([])
 
@@ -12,7 +13,6 @@ onBeforeMount(()=>{
   images.value.push({
     image:product.value?.image_alt
   })
-
   product.value?.images.forEach((img)=>{
     images.value.push({
       image:img.image
@@ -29,9 +29,6 @@ onBeforeMount(()=>{
       <router-link to="/catalog">Каталог</router-link>
       <p>Товар</p>
     </div>
-
-
-
         <div class="grid mb-8">
           <div class="col-6">
             <Galleria :value="images" :numVisible="5" thumbnailsPosition="right" >
@@ -45,13 +42,10 @@ onBeforeMount(()=>{
               </template>
             </Galleria>
           </div>
-
-
-
-      <div class="col-12 md:col-6">
+      <div class="col-12 md:col-6 md:pl-8 ">
         <p class="text-6xl mb-4">{{product.name}}</p>
         <p class="text-3xl mb-4">{{product.price}} ₽</p>
-        <p class="text-gray-400 mb-8">{{product.description}}</p>
+        <p class="mb-8">{{product.description}}</p>
         <div class="flex gap-4">
           <a :href="product.ozon_link">
             <Button class="btnBlue " label="Купить на Ozon"/>

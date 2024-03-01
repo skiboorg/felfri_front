@@ -1,28 +1,9 @@
 
-import { useHttpRequest } from '@/composables/useHttpRequest'
+import { useHttp } from '@/composables/useHttp'
 
 export const useCategories = () => {
-  const categories = ref([])
-
-  const fetchCategories = async () => {
-    try {
-      const { data, error } =
-        await useHttpRequest(`/api/shop/categories`)
-
-      if (!error.value) {
-        categories.value = data.value || []
-        return { data, error, status: true }
-      }
-
-      return { data: ref([]), error, status: true }
-    } catch (error) {
-      console.log(error)
-      return { status: false, error, data: ref([]) }
-    }
-  }
-
-  fetchCategories()
-
+  const {data:categories, error, fetchData:fetchCategories} = useHttp('/api/shop/categories')
+  if (!categories.value) fetchCategories()
   return {
     categories,
     fetchCategories

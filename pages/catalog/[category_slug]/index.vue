@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useHttpRequest } from '@/composables/useHttpRequest'
+
 const route = useRoute()
-const {data:category} = await useHttpRequest(`/api/shop/categories/${route.params.category_slug}`)
+const {data:category, fetchData:fetchCategory} = useHttp(`/api/shop/categories/${route.params.category_slug}`)
+await fetchCategory()
 
 </script>
 
@@ -13,21 +14,11 @@ const {data:category} = await useHttpRequest(`/api/shop/categories/${route.param
   </div>
   <p class="text-6xl mb-4">{{category.name}}</p>
   <TabView class="mb-8">
-    <TabPanel :header="subcat.name" class="mt-4" v-for="subcat in category.sub_categories">
+    <TabPanel :header="subcat.name" v-for="subcat in category.sub_categories" :key="subcat.id">
 
       <div class="grid row-gap-6 p-0 mt-4">
-        <div class="col-12 md:col-3" v-for="product in subcat.products">
-          <div class="small-card">
-            <p class="small-card-top">Пылесосы для автомобилей</p>
-            <img class="main_img" :src="product.image_main" alt="">
-            <img class="alt_img" :src="product.image_alt" alt="">
-            <p class="small-card-title">{{product.name}}</p>
-            <p class="small-card-price">{{product.price}} ₽</p>
-            <router-link :to="`/catalog/${category.slug}/${product.slug}`">
-              <Button  outlined rounded size="small" class="customBtn roundedBtn2 w-full" label="Подробнее о товаре"/>
-            </router-link>
-
-          </div>
+        <div class="col-12 md:col-3" v-for="product in subcat.products" :key="product.id">
+          <ItemCard :product="product" :category="category"/>
         </div>
       </div>
 
