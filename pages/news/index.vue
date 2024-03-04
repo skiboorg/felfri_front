@@ -25,20 +25,14 @@ const { data:news, pending:is_loading, refresh } = await useFetch(url)
     </div>
     <h1 class="text-6xl mb-4 font-medium">Статьи</h1>
     <div class="flex gap-2 flex-wrap mb-6">
-
+      <Button   rounded size="small" :class="{selected:selected_tag===''}" class="customBtn roundedBtn2"
+                label="#все" @click='updateSelectedTag("")'/>
       <Button   rounded size="small" :class="{selected:selected_tag===tag.slug}" class="customBtn roundedBtn2" v-for="tag in tags" :key="tag.id"
                :label="`#${tag.name}`" @click='updateSelectedTag(tag.slug)'/>
     </div>
     <div class="grid">
       <div class="col-12 md:col-4 mb-6" v-for="news_item in news.results">
-        <router-link :to="`/news/${news_item.slug}`">
-        <img class="img" :src="news_item.image" alt="">
-        <p class="font-medium text-xl mb-2">{{news_item.name}}</p>
-        <p class="mb-2">{{news_item.description}}</p>
-        <p class="font-medium"> <span class="grey-color">
-          Время чтения {{news_item.time_to_read}} | {{new Date(news_item.created).toLocaleDateString()}} |</span>
-          <span class="tag">#{{news_item.tag.name}}</span></p>
-        </router-link>
+        <NewsCard :news_item="news_item"/>
       </div>
     </div>
     <div class="">

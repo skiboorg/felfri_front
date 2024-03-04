@@ -16,6 +16,8 @@ import Paginator from 'primevue/paginator';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
 import Textarea from 'primevue/textarea';
+import OverlayPanel from 'primevue/overlaypanel';
+
 export default defineNuxtPlugin(nuxtApp => {
     nuxtApp.vueApp.use(PrimeVue, {ripple: false});
     nuxtApp.vueApp.component('Slider', Slider)
@@ -34,6 +36,7 @@ export default defineNuxtPlugin(nuxtApp => {
     nuxtApp.vueApp.component('AccordionTab', AccordionTab)
     nuxtApp.vueApp.component('Paginator', Paginator)
     nuxtApp.vueApp.component('Textarea', Textarea)
+    nuxtApp.vueApp.component('OverlayPanel', OverlayPanel)
 
 
     nuxtApp.vueApp.directive('tooltip', Tooltip)

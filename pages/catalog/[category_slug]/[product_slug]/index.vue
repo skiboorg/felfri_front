@@ -26,8 +26,8 @@ onBeforeMount(()=>{
   <div class="container">
     <div class="breadbrumbs mb-8">
       <router-link to="/">Главная</router-link>
-      <router-link to="/catalog">Каталог</router-link>
-      <p>Товар</p>
+      <router-link :to="`/catalog/${product.cat_slug}`">{{product.cat_name}}</router-link>
+      <p>{{product.name}}</p>
     </div>
         <div class="grid mb-8">
           <div class="col-6">
