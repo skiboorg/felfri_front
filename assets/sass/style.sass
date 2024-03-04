@@ -26,6 +26,7 @@
   color: var(--textColor)
   &.roundedBtn
     border: 1px solid var(--buttonBorder)
+    z-index: 10
     & .p-button-label
       font-weight: normal
   &.roundedBtn1
@@ -337,8 +338,8 @@
   background: transparent
   padding: 16px
 .btnBlue
-  background: #0f66fe
-  border-color: #0f66fe
+  background: var(--blueColor)
+  border-color: var(--blueColor)
   padding: 16px 30px
 .btnLink
   color: white
@@ -388,6 +389,7 @@
   display: block
   border-radius: 100%
 .menu-wrapper
+  padding: 15px 0
   &:hover
     & .sub-menu
      display: block
@@ -400,6 +402,7 @@
         height: 2px
         left: 0
         bottom: -35px
+        z-index: 2
 
 .sub-menu
   display: none
@@ -408,20 +411,30 @@
   left: 0
   right: 0
   top: 100px
+  background: var(--backgroundColor)
 
   transition: all .2s linear
   padding-top: 30px
+  & .container
+    padding-bottom: 30px
+  &--item
+    display: flex
+    align-items: center
+    gap: 16px
+    background: var(--greyBlockBg)
+    border-radius: 10px
 
 .banner
   //z-index: 1
   width: 100%
   height: 640px
   position: relative
+  user-select: none
   &-text-big
     position: absolute
     color: white
     left: 150px
-    top: 20%
+    top: 35%
     font-size: 45px
 
   &-text-small
@@ -430,7 +443,7 @@
     left: 150px
     font-size: 18px
     line-height: 25px
-    top: 30%
+    top: 45%
     max-width: 50%
 .p-galleria-indicators
   gap: 15px
@@ -474,9 +487,15 @@
 
 .p-accordion .p-accordion-header .p-accordion-header-link
   padding: 16px 0 !important
+  font-size: 32px
+  font-weight: 500
 
 .p-accordion .p-accordion-content
   padding: 16px 0 !important
+  font-size: 18px
+  line-height: 27px
+  p
+    max-width: 600px
 
 .arrows
   position: absolute

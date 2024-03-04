@@ -68,8 +68,11 @@ onBeforeMount(()=>{
           </div>
         </div>
       </div>
-      <div class="col-12 md:col-2">
-        <Button outlined label="Скачать инструкцию" icon="pi pi-download" class="customBtn"/>
+      <div v-if="product.file" class="col-12 md:col-2">
+        <a :href="product.file" target="_blank">
+          <Button outlined label="Скачать инструкцию" icon="pi pi-download" class="customBtn"/>
+        </a>
+
       </div>
     </div>
 <!--    <iframe class="iframe mb-8" src="https://www.youtube.com/embed/Iud-CGC42ns?si=DmEOTcVBrNSeZ7Uz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->

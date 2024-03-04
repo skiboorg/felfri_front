@@ -39,7 +39,7 @@ console.log(categories)
               <div class="grid menu-grid">
 
                 <div class="col-2 " v-for="subcat in cat.sub_categories" :key="subcat.id">
-                  <router-link class="flex align-items-center gap-2" :to="`/catalog/${cat.slug}`">
+                  <router-link class="sub-menu--item" :to="`/catalog/${cat.slug}`">
                   <img class="menu-img" :src="subcat.image" alt="">
                   <p>{{subcat.name}}</p>
                   </router-link>

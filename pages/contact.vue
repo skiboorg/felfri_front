@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="container">
+  <div class="container mb-8">
     <div class="breadbrumbs mb-6">
       <router-link to="/">Главная</router-link>
       <p>Связаться с нами</p>

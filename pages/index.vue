@@ -101,7 +101,8 @@ const changeSlide = (act) => {
                         <span class="font-bold white-space-nowrap">{{faq.question}}</span>
                     </span>
         </template>
-        <p class="m-0">{{faq.answer}}</p>
+        <p class="mb-3">{{faq.answer}}</p>
+        <div class="separator"></div>
       </AccordionTab>
     </Accordion>
   </div>
