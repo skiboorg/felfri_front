@@ -10,6 +10,7 @@
     </div>
 
     <h1 class="text-6xl mb-4 font-medium">Поддержка</h1>
+    <p class="mb-4 max-w-half">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem beatae cum delectus distinctio doloribus dolorum eius error esse est exercitationem libero minus molestiae nihil odio officia quaerat quasi qui quia quo quos, sint sit veritatis vitae voluptatibus? Corporis dolorem eius error hic id labore nobis provident quos voluptas voluptate.</p>
     <div class="grid mb-8">
       <div class="col-12 md:col-3">
         <div class="grey-block-item w-hover">
@@ -31,17 +32,21 @@
       </div>
       <div class="col-12 md:col-3">
         <div class="grey-block-item w-hover">
+          <router-link to="/warranty">
           <div class="grey-block-icon">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M25.3327 28L15.9993 21.3333L6.66602 28V6.66667C6.66602 5.95942 6.94697 5.28115 7.44706 4.78105C7.94716 4.28095 8.62544 4 9.33268 4H22.666C23.3733 4 24.0515 4.28095 24.5516 4.78105C25.0517 5.28115 25.3327 5.95942 25.3327 6.66667V28Z"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
+
           <p class="font-medium mb-2">Гарантии</p>
           <p>Lorem ipsum dolor sit amet consectetur. Eu pharetra ullamcorper sed congue...</p>
+          </router-link>
         </div>
       </div>
       <div class="col-12 md:col-3">
         <div class="grey-block-item w-hover">
+          <router-link to="/exchange">
           <div class="grey-block-icon">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M30.666 5.33301V13.333H22.666"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -52,10 +57,12 @@
           </div>
           <p class="font-medium mb-2">Обмен и возврат</p>
           <p>Lorem ipsum dolor sit amet consectetur. Eu pharetra ullamcorper sed congue...</p>
+          </router-link>
         </div>
       </div>
       <div class="col-12 md:col-3">
         <div class="grey-block-item w-hover">
+          <router-link to="/contact">
           <div class="grey-block-icon">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M25.334 1.33301L30.6673 6.66634L25.334 11.9997"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -66,6 +73,7 @@
           </div>
           <p class="font-medium mb-2">Связаться с нами</p>
           <p>Lorem ipsum dolor sit amet consectetur. Eu pharetra ullamcorper sed congue...</p>
+          </router-link>
         </div>
       </div>
     </div>

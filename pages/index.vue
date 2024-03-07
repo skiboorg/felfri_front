@@ -60,7 +60,7 @@ const changeSlide = (act) => {
   <TabView class="mb-8">
     <TabPanel :header="cat.name_alt"  v-for="cat in categories" :key="cat.id">
       <div class="grid row-gap-6 p-0 mt-4">
-        <div class="col-12 md:col-4" v-for="subcat in cat.sub_categories">
+        <div class="col-12 md:col-6 lg:col-4" v-for="subcat in cat.sub_categories">
           <router-link :to="`/catalog/${cat.slug}`">
           <div class="big-card">
             <p class="big-card-title">{{subcat.name}}</p>
@@ -77,19 +77,19 @@ const changeSlide = (act) => {
   </TabView>
   <p class="text-6xl mb-6">Популярные товары</p>
   <div class="grid row-gap-6 p-0 mb-8">
-    <div class="col-12 md:col-3" v-for="product in popular_products" :key="product.id">
+    <div class="col-12 md:col-6 lg:col-4" v-for="product in popular_products" :key="product.id">
       <ItemCard :product="product"/>
     </div>
   </div>
   <p class="text-6xl mb-6">Новинки</p>
   <div class="grid row-gap-6 p-0 mb-8">
-    <div class="col-12 md:col-3" v-for="product in new_products" :key="product.id">
+    <div class="col-12 md:col-6 lg:col-4" v-for="product in new_products" :key="product.id">
       <ItemCard :product="product"/>
     </div>
   </div>
   <img class="img mb-6" src="~assets/images/Video.png" alt="">
   <p class="text-6xl mb-6">Новости</p>
-  <div class="col-12 md:col-4 mb-6" v-for="news_item in news.results">
+  <div class="col-12 md:col-6 lg:col-4 mb-6" v-for="news_item in news.results">
   <NewsCard :news_item="news_item"/>
   </div>
   <p class="text-6xl mb-4">Faq</p>
@@ -97,11 +97,11 @@ const changeSlide = (act) => {
     <Accordion :activeIndex="0" expandIcon="pi pi-plus" collapseIcon="pi pi-minus">
       <AccordionTab v-for="faq in faqs" :key="faq.id">
         <template #header>
-                    <span class="flex align-items-center gap-2 w-full">
-                        <span class="font-bold white-space-nowrap">{{faq.question}}</span>
+                    <span class="faq-q">
+                        <p>{{faq.question}}</p>
                     </span>
         </template>
-        <p class="mb-3">{{faq.answer}}</p>
+        <p class="faq-a mb-3">{{faq.answer}}</p>
         <div class="separator"></div>
       </AccordionTab>
     </Accordion>

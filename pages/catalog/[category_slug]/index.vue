@@ -40,7 +40,7 @@ const toggle = (event) => {
     <TabPanel :header="subcat.name" v-for="subcat in category.sub_categories" :key="subcat.id">
 
       <div class="grid row-gap-6 p-0 mt-4">
-        <div class="col-12 md:col-3" v-for="product in subcat.products" :key="product.id">
+        <div class="col-12 md:col-6 lg:col-3" v-for="product in subcat.products" :key="product.id">
           <ItemCard :product="product" :category="category"/>
         </div>
       </div>

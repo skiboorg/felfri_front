@@ -30,7 +30,7 @@ onBeforeMount(()=>{
       <p>{{product.name}}</p>
     </div>
         <div class="grid mb-8">
-          <div class="col-6">
+          <div class="col-12 md:col-6">
             <Galleria :value="images" :numVisible="5" thumbnailsPosition="right" >
               <template #item="slotProps">
                 <img :src="slotProps.item.image" :alt="slotProps.item.alt" class="gallery_img" />
@@ -70,7 +70,7 @@ onBeforeMount(()=>{
       </div>
       <div v-if="product.file" class="col-12 md:col-2">
         <a :href="product.file" target="_blank">
-          <Button outlined label="Скачать инструкцию" icon="pi pi-download" class="customBtn"/>
+          <Button outlined label="Скачать инструкцию" icon="pi pi-download" class="customBtn downloadBtn"/>
         </a>
 
       </div>
@@ -90,33 +90,24 @@ onBeforeMount(()=>{
           </div>
         </div>
 
-    <div class="grid align-items-center mb-6">
-      <div class="col-12 md:col-6">
-        <img class="img" src="~assets/images/test.png" alt="">
+    <template v-for="block in product.text_blocks">
+      <div v-if="block.is_image_right" class="grid align-items-center mb-6">
+        <div class="col-12 md:col-6 px-0 md:px-8 md:flex-order-1" v-html="block.html_content"></div>
+        <div class="col-12 md:col-6 md:flex-order-2">
+          1
+          <img class="img" :src="block.image" alt="">
+        </div>
       </div>
-      <div class="col-12 md:col-6 px-0 md:px-8">
-        <p class="text-6xl">Lorem ipsum dolor.</p>
-        <p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dicta dolor labore molestiae officia quia quis, quo quos recusandae reprehenderit sapiente totam veritatis! Distinctio facilis itaque voluptates. Adipisci, optio?</p>
+      <div v-else class="grid align-items-center mb-6">
+        <div class="col-12 md:col-6">
+          <img class="img" :src="block.image" alt="">
+        </div>
+        <div class="col-12 md:col-6 px-0 md:px-8" v-html="block.html_content"></div>
       </div>
-    </div>
-    <div class="grid align-items-center mb-6">
-      <div class="col-12 md:col-6 px-0 md:px-8">
-        <p class="text-6xl">Lorem ipsum dolor.</p>
-        <p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dicta dolor labore molestiae officia quia quis, quo quos recusandae reprehenderit sapiente totam veritatis! Distinctio facilis itaque voluptates. Adipisci, optio?</p>
-      </div>
-      <div class="col-12 md:col-6">
-        <img class="img" src="~assets/images/test.png" alt="">
-      </div>
-    </div>
-    <div class="grid align-items-center mb-8">
-      <div class="col-12 md:col-6">
-        <img class="img" src="~assets/images/test.png" alt="">
-      </div>
-      <div class="col-12 md:col-6 px-0 md:px-8">
-        <p class="text-6xl">Lorem ipsum dolor.</p>
-        <p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dicta dolor labore molestiae officia quia quis, quo quos recusandae reprehenderit sapiente totam veritatis! Distinctio facilis itaque voluptates. Adipisci, optio?</p>
-      </div>
-    </div>
+    </template>
+
+
+
 
 
   </div>

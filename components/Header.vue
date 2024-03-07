@@ -8,7 +8,7 @@ const { categories } = useCategories()
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
-console.log(categories)
+const visible = ref(false)
 </script>
 
 <template>
@@ -29,7 +29,7 @@ console.log(categories)
         <img class="logo" v-else src="~assets/images/logo-b.svg" alt="">
       </router-link>
 
-      <div class="flex align-items-center gap-4">
+      <div class="align-items-center gap-4 hidden lg:flex">
         <div class="menu-wrapper" v-for="cat in categories?.filter(x=>x.show_at_equipment)" :key="cat.id">
           <router-link class="menu-link"  :to="`/catalog/${cat.slug}`" >{{cat.name}}</router-link>
           <div class="sub-menu">
@@ -55,7 +55,7 @@ console.log(categories)
 
 
       </div>
-      <div class="flex align-items-center gap-2">
+      <div class="align-items-center gap-2 hidden lg:flex">
         <Button text icon="pi pi-search" rounded size="small" class="customBtn"/>
         <router-link class="header-top-link" to="/support">
           <Button  outlined rounded size="small" class="customBtn roundedBtn"  label="Поддержка"/>
@@ -64,8 +64,25 @@ console.log(categories)
         <Button  outlined rounded size="small" class="customBtn roundedBtn" label="Мы на WB"/>
         <Button  outlined rounded size="small" class="customBtn roundedBtn" label="Мы на Ozon"/>
       </div>
+      <div class="lg:hidden cursor-pointer" @click="visible=true"><i class="pi pi-bars text-2xl"></i></div>
     </div>
   </header>
+  <Sidebar v-model:visible="visible" position="right" header=" ">
+    <div class="footer-links mb-4">
+
+      <router-link class="menu-link" v-for="cat in categories?.filter(x=>x.show_at_equipment)" :key="cat.id" :to="`/catalog/${cat.slug}`" >{{cat.name}}</router-link>
+
+    </div>
+    <div class="flex flex-column gap-3">
+      <router-link class="w-full block" to="/support">
+        <Button  outlined rounded size="small" class="customBtn roundedBtn w-full"  label="Поддержка"/>
+      </router-link>
+
+      <Button  outlined rounded size="small" class="customBtn roundedBtn" label="Мы на WB"/>
+      <Button  outlined rounded size="small" class="customBtn roundedBtn" label="Мы на Ozon"/>
+    </div>
+
+ </Sidebar>
 
 
 

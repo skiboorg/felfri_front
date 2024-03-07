@@ -31,17 +31,17 @@ const { data:news, pending:is_loading, refresh } = await useFetch(url)
                :label="`#${tag.name}`" @click='updateSelectedTag(tag.slug)'/>
     </div>
     <div class="grid">
-      <div class="col-12 md:col-4 mb-6" v-for="news_item in news.results">
+      <div class="col-12 md:col-6 lg:col-4 mb-6" v-for="news_item in news.results">
         <NewsCard :news_item="news_item"/>
       </div>
     </div>
-    <div class="">
-      <Paginator
+<!--    <div class="">-->
+<!--      <Paginator-->
 
-          :rows="40"
-          :totalRecords="120">
-      </Paginator>
-    </div>
+<!--          :rows="40"-->
+<!--          :totalRecords="120">-->
+<!--      </Paginator>-->
+<!--    </div>-->
   </div>
 </template>
 

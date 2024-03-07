@@ -10,6 +10,8 @@
     </div>
 
     <h1 class="text-6xl mb-4 font-medium">Связаться с нами</h1>
+    <p class="mb-6 max-w-half line-height-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem beatae cum delectus distinctio doloribus dolorum eius error esse est exercitationem libero minus molestiae nihil odio officia quaerat quasi qui quia quo quos, sint sit veritatis vitae voluptatibus? Corporis dolorem eius error hic id labore nobis provident quos voluptas voluptate.</p>
+
     <div class="grid">
       <div class="col-12 md:col-8">
         <InputText size="" placeholder="Ваше имя" class="w-full mb-3"/>

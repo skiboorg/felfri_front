@@ -24,6 +24,12 @@
 
 .customBtn
   color: var(--textColor)
+  &.downloadBtn
+    border: 1px solid var(--buttonBorder)
+    font-size: 14px
+    width: 100%
+    height: 100%
+
   &.roundedBtn
     border: 1px solid var(--buttonBorder)
     z-index: 10
@@ -57,6 +63,9 @@
 .p-tabview-nav
   background: var(--backgroundColor)
   border-bottom: 1px solid var(--buttonBorder)
+  overflow-x: auto
+  overflow-y: hidden
+
 .p-tabview-panels
   background: var(--backgroundColor)
   padding: 16px 0
@@ -401,7 +410,7 @@
         background: var(--blueColor)
         height: 2px
         left: 0
-        bottom: -35px
+        bottom: -33px
         z-index: 2
 
 .sub-menu
@@ -423,6 +432,7 @@
     gap: 16px
     background: var(--greyBlockBg)
     border-radius: 10px
+    padding: 10px
 
 .banner
   //z-index: 1
@@ -477,7 +487,7 @@
   width: 100%
   height: 100%
   object-fit: cover
-  @include md-u
+  @include lg-u
     display: none
 
 .news-img
@@ -512,3 +522,14 @@
   display: block
   cursor: pointer
 
+.max-w-half
+  max-width: 50%
+  @include md-d
+    max-width: 100%
+
+.faq-q
+  p
+    font-weight: 600
+  @include md-d
+    p
+      max-width: 80%

@@ -17,6 +17,7 @@ import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
 import Textarea from 'primevue/textarea';
 import OverlayPanel from 'primevue/overlaypanel';
+import Sidebar from 'primevue/sidebar';
 
 export default defineNuxtPlugin(nuxtApp => {
     nuxtApp.vueApp.use(PrimeVue, {ripple: false});
@@ -37,6 +38,7 @@ export default defineNuxtPlugin(nuxtApp => {
     nuxtApp.vueApp.component('Paginator', Paginator)
     nuxtApp.vueApp.component('Textarea', Textarea)
     nuxtApp.vueApp.component('OverlayPanel', OverlayPanel)
+    nuxtApp.vueApp.component('Sidebar', Sidebar)
 
 
     nuxtApp.vueApp.directive('tooltip', Tooltip)
