@@ -61,10 +61,10 @@ const changeSlide = (act) => {
     <TabPanel :header="cat.name_alt"  v-for="cat in categories" :key="cat.id">
       <div class="grid row-gap-6 p-0 mt-4">
         <div class="col-12 md:col-6 lg:col-4" v-for="subcat in cat.sub_categories">
-          <router-link :to="`/catalog/${cat.slug}`">
+          <router-link :to="`/catalog/${cat.slug}/${subcat.slug}`">
           <div class="big-card">
             <p class="big-card-title">{{subcat.name}}</p>
-            <p class="big-card-subtitle">{{subcat.products.length}} товаров</p>
+            <p class="big-card-subtitle">{{subcat.short_description}}</p>
             <img class="big-card-image" :src="subcat.image" alt="">
           </div>
           </router-link>

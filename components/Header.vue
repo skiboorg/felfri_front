@@ -31,7 +31,8 @@ const visible = ref(false)
 
       <div class="align-items-center gap-4 hidden lg:flex">
         <div class="menu-wrapper" v-for="cat in categories?.filter(x=>x.show_at_equipment)" :key="cat.id">
-          <router-link class="menu-link"  :to="`/catalog/${cat.slug}`" >{{cat.name}}</router-link>
+          <router-link class="menu-link"  :to="`/catalog/${cat.slug}/${cat.sub_categories[0]?.slug}`" >{{cat.name}}</router-link>
+
           <div class="sub-menu">
             <div class="separator mb-5"></div>
             <div class="container">
@@ -39,7 +40,7 @@ const visible = ref(false)
               <div class="grid menu-grid">
 
                 <div class="col-2 " v-for="subcat in cat.sub_categories" :key="subcat.id">
-                  <router-link class="sub-menu--item" :to="`/catalog/${cat.slug}`">
+                  <router-link class="sub-menu--item" :to="`/catalog/${cat.slug}/${subcat.slug}`">
                   <img class="menu-img" :src="subcat.image" alt="">
                   <p>{{subcat.name}}</p>
                   </router-link>
@@ -56,7 +57,7 @@ const visible = ref(false)
 
       </div>
       <div class="align-items-center gap-2 hidden lg:flex">
-        <Button text icon="pi pi-search" rounded size="small" class="customBtn"/>
+<!--        <Button text icon="pi pi-search" rounded size="small" class="customBtn"/>-->
         <router-link class="header-top-link" to="/support">
           <Button  outlined rounded size="small" class="customBtn roundedBtn"  label="Поддержка"/>
         </router-link>

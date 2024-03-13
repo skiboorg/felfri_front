@@ -26,7 +26,8 @@ onBeforeMount(()=>{
   <div class="container">
     <div class="breadbrumbs mb-8">
       <router-link to="/">Главная</router-link>
-      <router-link :to="`/catalog/${product.cat_slug}`">{{product.cat_name}}</router-link>
+      <router-link :to="`/catalog/${product.cat_slug}/${product.subcat_slug}`">{{product.cat_name}}</router-link>
+
       <p>{{product.name}}</p>
     </div>
         <div class="grid mb-8">
@@ -45,7 +46,7 @@ onBeforeMount(()=>{
       <div class="col-12 md:col-6 md:pl-8 ">
         <p class="text-6xl mb-4">{{product.name}}</p>
         <p class="text-3xl mb-4">{{product.price}} ₽</p>
-        <p class="mb-8">{{product.description}}</p>
+        <div class="mb-8" v-html="product.description"></div>
         <div class="flex gap-4">
           <a :href="product.ozon_link">
             <Button class="btnBlue " label="Купить на Ozon"/>

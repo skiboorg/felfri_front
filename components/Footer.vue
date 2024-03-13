@@ -17,7 +17,7 @@
           <p class="font-medium mb-4">Категории</p>
           <div class="footer-links">
 
-            <router-link class="menu-link" v-for="cat in categories?.filter(x=>x.show_at_equipment)" :key="cat.id" :to="`/catalog/${cat.slug}`" >{{cat.name}}</router-link>
+            <router-link class="menu-link" v-for="cat in categories?.filter(x=>x.show_at_equipment)" :key="cat.id" :to="`/catalog/${cat.slug}/${cat.sub_categories[0]?.slug}`" >{{cat.name}}</router-link>
 
           </div>
         </div>
