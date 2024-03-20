@@ -24,13 +24,15 @@ onBeforeMount(()=>{
 <template>
 
   <div class="container">
-    <div class="breadbrumbs mb-8">
+
+    <div class="breadbrumbs mb-4 md:mb-8">
       <router-link to="/">Главная</router-link>
-      <router-link :to="`/catalog/${product.cat_slug}/${product.subcat_slug}`">{{product.cat_name}}</router-link>
+      <router-link :to="`/catalog/${product.cat_slug}/${product.subcat_slug}`">{{product.cat_name}} / {{product.subcat_name}}</router-link>
+
 
       <p>{{product.name}}</p>
     </div>
-        <div class="grid mb-8">
+        <div class="grid mb-4 md:mb-8">
           <div class="col-12 md:col-6">
             <Galleria :value="images" :numVisible="5" thumbnailsPosition="right" >
               <template #item="slotProps">
@@ -44,9 +46,9 @@ onBeforeMount(()=>{
             </Galleria>
           </div>
       <div class="col-12 md:col-6 md:pl-8 ">
-        <p class="text-6xl mb-4">{{product.name}}</p>
+        <p class="text-4xl md:text-6xl mb-4">{{product.name}}</p>
         <p class="text-3xl mb-4">{{product.price}} ₽</p>
-        <div class="mb-8" v-html="product.description"></div>
+        <div class="mb-4 md:mb-8" v-html="product.description"></div>
         <div class="flex gap-4">
           <a :href="product.ozon_link">
             <Button class="btnBlue " label="Купить на Ozon"/>
@@ -59,8 +61,8 @@ onBeforeMount(()=>{
       </div>
         </div>
 
-    <p class="text-6xl mb-4">Характеристики</p>
-    <div class="grid mb-8">
+    <p class="text-4xl md:text-6xl mb-4">Характеристики</p>
+    <div class="grid mb-4 md:mb-8">
       <div class="col-12 md:col-10">
         <div class="grid">
           <div class="col-12 md:col-3" v-for="feature in product.features">
@@ -76,10 +78,10 @@ onBeforeMount(()=>{
 
       </div>
     </div>
-<!--    <iframe class="iframe mb-8" src="https://www.youtube.com/embed/Iud-CGC42ns?si=DmEOTcVBrNSeZ7Uz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
-    <p class="text-6xl mb-4">Комплектация</p>
+<!--    <iframe class="iframe mb-4 md:mb-8" src="https://www.youtube.com/embed/Iud-CGC42ns?si=DmEOTcVBrNSeZ7Uz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
+    <p class="text-4xl md:text-6xl mb-4">Комплектация</p>
 
-        <div class="grid mb-8">
+        <div class="grid mb-4 md:mb-8">
           <div class="col-12 sm:col-6 md:col-3" v-for="complect in product.complects">
            <div class="flex align-items-center gap-2">
              <img :src="complect.image" alt="">
@@ -93,9 +95,8 @@ onBeforeMount(()=>{
 
     <template v-for="block in product.text_blocks">
       <div v-if="block.is_image_right" class="grid align-items-center mb-6">
-        <div class="col-12 md:col-6 px-0 md:px-8 md:flex-order-1" v-html="block.html_content"></div>
-        <div class="col-12 md:col-6 md:flex-order-2">
-          1
+        <div class="col-12 md:col-6  md:px-8 flex-order-1 md:flex-order-1" v-html="block.html_content"></div>
+        <div class="col-12 md:col-6 flex-order-0 md:flex-order-2">
           <img class="img" :src="block.image" alt="">
         </div>
       </div>
@@ -103,7 +104,7 @@ onBeforeMount(()=>{
         <div class="col-12 md:col-6">
           <img class="img" :src="block.image" alt="">
         </div>
-        <div class="col-12 md:col-6 px-0 md:px-8" v-html="block.html_content"></div>
+        <div class="col-12 md:col-6  md:px-8" v-html="block.html_content"></div>
       </div>
     </template>
 

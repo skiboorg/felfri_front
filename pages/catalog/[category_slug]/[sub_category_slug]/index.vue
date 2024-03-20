@@ -10,11 +10,13 @@ const toggle = (event) => {
 }
 let seoText
 let tabIndex
+let subcatName
 
 try {
   const sub_category_slug = route.params.sub_category_slug
   seoText = category.value.sub_categories.find(x=>x.slug===sub_category_slug).html_content
   tabIndex = category.value.sub_categories.findIndex(x=>x.slug===sub_category_slug) || 0
+  subcatName = category.value.sub_categories.find(x=>x.slug===sub_category_slug).name
 }catch (e) {
   throw createError({
     statusCode: 404,
@@ -33,7 +35,7 @@ const tabClick = (e) => {
 <div class="container">
   <div class="breadbrumbs mb-8">
     <router-link to="/">Главная</router-link>
-    <p>{{category.name}}</p>
+    <p>{{category.name}} / {{subcatName}}</p>
   </div>
   <div class="flex align-items-center justify-content-between mb-4">
     <p class="text-6xl ">{{category.name}}</p>
@@ -57,7 +59,7 @@ const tabClick = (e) => {
 
   <TabView class="mb-8" @tab-click="tabClick" :active-index="tabIndex">
     <TabPanel :header="subcat.name" v-for="subcat in category.sub_categories" :key="subcat.id" >
-      <div class="grid row-gap-6 p-0 mt-4">
+      <div class="grid row-gap-1 p-0 mt-4">
         <div class="col-12 md:col-6 lg:col-3" v-for="product in subcat.products" :key="product.id">
           <ItemCard :product="product" :category="category"/>
         </div>
