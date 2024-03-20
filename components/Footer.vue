@@ -43,5 +43,6 @@
 import { useCategories } from '@/composables/useCategories'
 
 
-const { categories } = useCategories()
+const { categories, fetchCategories } = useCategories()
+await fetchCategories()
 </script>

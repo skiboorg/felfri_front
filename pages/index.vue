@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const activeIndex = ref(0);
-const { categories } = useCategories()
+const { categories, fetchCategories } = useCategories()
 const { popular_products, new_products } = useProducts()
 const {data:images, fetchData:fetchBanners} = useHttp(`/api/data/banners`)
 await fetchBanners()
@@ -9,7 +9,7 @@ await fetchFaq()
 const {data:news, fetchData:fetchNews} = useHttp(`/api/news/all`)
 await fetchNews()
 
-
+await fetchCategories()
 const changeSlide = (act) => {
 
   if (act === 'inc'){

@@ -4,10 +4,10 @@ import { useDark, useToggle } from '@vueuse/core'
 import { useCategories } from '@/composables/useCategories'
 
 
-const { categories } = useCategories()
+const { categories, fetchCategories } = useCategories()
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
-
+await fetchCategories()
 const visible = ref(false)
 </script>
 
