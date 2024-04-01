@@ -13,7 +13,7 @@
     <p class="mb-4 max-w-half">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem beatae cum delectus distinctio doloribus dolorum eius error esse est exercitationem libero minus molestiae nihil odio officia quaerat quasi qui quia quo quos, sint sit veritatis vitae voluptatibus? Corporis dolorem eius error hic id labore nobis provident quos voluptas voluptate.</p>
     <div class="grid mb-8">
       <div class="col-12 md:col-3">
-        <div class="grey-block-item w-hover">
+        <div class="grey-block-item w-hover support-card">
           <router-link to="/instructions">
           <div class="grey-block-icon">
 
@@ -25,13 +25,13 @@
             </svg>
 
           </div>
-          <p class="font-medium mb-2">Инструкции</p>
-          <p>Lorem ipsum dolor sit amet consectetur. Eu pharetra ullamcorper sed congue...</p>
+          <p class="font-bold mb-2">Инструкции</p>
+          <p>Каталог инструкций для всех изделий, представленных на нашем сайте бренда Felfri.</p>
           </router-link>
         </div>
       </div>
       <div class="col-12 md:col-3">
-        <div class="grey-block-item w-hover">
+        <div class="grey-block-item w-hover support-card">
           <router-link to="/warranty">
           <div class="grey-block-icon">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,12 +40,12 @@
           </div>
 
           <p class="font-medium mb-2">Гарантии</p>
-          <p>Lorem ipsum dolor sit amet consectetur. Eu pharetra ullamcorper sed congue...</p>
+          <p>Информация о гарантиях на нашу продукцию.</p>
           </router-link>
         </div>
       </div>
       <div class="col-12 md:col-3">
-        <div class="grey-block-item w-hover">
+        <div class="grey-block-item w-hover support-card">
           <router-link to="/exchange">
           <div class="grey-block-icon">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,12 +56,12 @@
 
           </div>
           <p class="font-medium mb-2">Обмен и возврат</p>
-          <p>Lorem ipsum dolor sit amet consectetur. Eu pharetra ullamcorper sed congue...</p>
+          <p>Информация о механизмах взаимодействия в случае оформления обмена или возврата.</p>
           </router-link>
         </div>
       </div>
       <div class="col-12 md:col-3">
-        <div class="grey-block-item w-hover">
+        <div class="grey-block-item w-hover support-card">
           <router-link to="/contact">
           <div class="grey-block-icon">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -72,7 +72,7 @@
 
           </div>
           <p class="font-medium mb-2">Связаться с нами</p>
-          <p>Lorem ipsum dolor sit amet consectetur. Eu pharetra ullamcorper sed congue...</p>
+          <p>Наши контакты и обратная связь с нами.</p>
           </router-link>
         </div>
       </div>

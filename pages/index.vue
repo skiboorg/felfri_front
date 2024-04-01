@@ -89,9 +89,12 @@ const changeSlide = (act) => {
   </div>
   <img class="img mb-6" src="~assets/images/Video.png" alt="">
   <p class="text-6xl mb-6">Новости</p>
-  <div class="col-12 md:col-6 lg:col-4 mb-6" v-for="news_item in news.results">
+  <div class="grid row-gap-6 p-0 mb-8">
+    <div class="col-12 md:col-6 lg:col-4 " v-for="news_item in news.results">
+
   <NewsCard :news_item="news_item"/>
   </div>
+</div>
   <p class="text-6xl mb-4">Faq</p>
   <div class="mb-8">
     <Accordion :activeIndex="0" expandIcon="pi pi-plus" collapseIcon="pi pi-minus">
