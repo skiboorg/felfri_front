@@ -20,11 +20,13 @@ const visible = ref(false)
           <router-link class="header-top-link" to="/contact">Контакты</router-link>
           <router-link class="header-top-link" to="/news">Новости</router-link>
         </div>
-        <Button size="sm" text @click="toggleDark()" :icon="isDark ? 'pi pi-sun' : 'pi pi-moon'"/>
+        <Button  text @click="toggleDark()" class="theme-toggle" :icon="isDark ? 'pi pi-sun' : 'pi pi-moon'" :label="isDark ? 'Светлая тема' : 'Темная тема'"/>
       </div>
     </div>
     <div class="container flex align-items-center justify-content-between py-4">
       <router-link to="/">
+
+
         <img class="logo" v-if="isDark" src="~assets/images/logo-w.svg" alt="">
         <img class="logo" v-else src="~assets/images/logo-b.svg" alt="">
       </router-link>

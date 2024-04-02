@@ -10,8 +10,7 @@
     </div>
 
     <h1 class="text-6xl mb-4 font-medium">Поддержка</h1>
-    <p class="mb-4 max-w-half">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem beatae cum delectus distinctio doloribus dolorum eius error esse est exercitationem libero minus molestiae nihil odio officia quaerat quasi qui quia quo quos, sint sit veritatis vitae voluptatibus? Corporis dolorem eius error hic id labore nobis provident quos voluptas voluptate.</p>
-    <div class="grid mb-8">
+   <div class="grid mb-8">
       <div class="col-12 md:col-3">
         <div class="grey-block-item w-hover support-card">
           <router-link to="/instructions">

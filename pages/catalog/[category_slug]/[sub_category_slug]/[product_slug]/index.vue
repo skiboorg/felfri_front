@@ -47,6 +47,7 @@ onBeforeMount(()=>{
           </div>
       <div class="col-12 md:col-6 md:pl-8 ">
         <p class="text-4xl md:text-6xl mb-4">{{product.name}}</p>
+        <p class="text-xxs text-gray-300">Рекомендованная цена</p>
         <p class="text-3xl mb-4">{{product.price}} ₽</p>
         <div class="mb-4 md:mb-8" v-html="product.description"></div>
         <div class="flex gap-4">

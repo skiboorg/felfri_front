@@ -4,7 +4,7 @@
 
 
 <template>
-  <div class="container">
+  <div class="container static-page">
     <div class="breadbrumbs mb-6">
       <router-link to="/">Главная</router-link>
       <p>Обмен и возврат</p>
