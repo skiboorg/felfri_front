@@ -19,6 +19,7 @@
   object-fit: cover
 .header-top
   background: var(--headerTop)
+
   &-link
     color: var(--headerTopLink)
 
@@ -58,6 +59,9 @@
 .gallery
   height: 640px
   margin-bottom: 180px
+  @include sm-d()
+    height: auto
+    margin-bottom: 90px
 
 
 .p-tabview-nav
@@ -92,12 +96,15 @@
 .big-card
   position: relative
   border-radius: 14px
-  padding: 24px
+  padding: 32px
   min-height: 460px
   cursor: pointer
   z-index: 1
   overflow: hidden
   border: 1px solid var(--bigCardBorder)
+  @include md-d
+    min-height: 360px
+    padding: 20px
   &::before
     position: absolute
     content: ''
@@ -133,14 +140,23 @@
     object-fit: contain
     right: 40px
     bottom: 40px
+    @include md-d
+      width: 80%
+      height: auto
+      right: 20px
   &-title
     color: var(--textColor)
     font-size: 32px
-    font-weight: 500
+
+    //font-weight: 500
+    @include md-d
+      font-size: 24px
   &-subtitle
     color: var(--textColorGrey)
-    font-size: 20px
-    font-weight: 500
+    font-size: 16px
+    //font-weight: 500
+    @include md-d
+      font-size: 12px
 
 .card
   &-image
@@ -202,7 +218,7 @@
     display: none
   img
     width: 100%
-    height: 400px
+    //height: 400px
     object-fit: cover
     display: block
     margin-bottom: 16px
@@ -352,11 +368,15 @@
   background: var(--blueColor)
   border-color: var(--blueColor)
   padding: 16px 30px
+  & .p-button-label
+    font-weight: 400
 .btnLink
   color: white
-  background: #ec4be5
-  border-color: #ec4be5
+  background: #DB00FF
+  border-color: #DB00FF
   padding: 16px 30px
+  & .p-button-label
+    font-weight: 400
 .p-galleria-item-wrapper
   width: 100%
 
@@ -394,8 +414,8 @@
 .menu-link
   position: relative
 .menu-img
-  width: 100px
-  height: 100px
+  width: 80px
+  height: 80px
   object-fit: contain
   display: block
   border-radius: 100%
@@ -442,12 +462,19 @@
   height: 640px
   position: relative
   user-select: none
+  @include sm-d()
+    height: auto
   &-text-big
     position: absolute
     color: white
     left: 150px
     top: 35%
     font-size: 45px
+    @include md-d()
+      left: 20px
+      font-size: 30px
+      top: unset
+      bottom: 140px
 
   &-text-small
     position: absolute
@@ -457,6 +484,12 @@
     line-height: 25px
     top: 45%
     max-width: 50%
+    @include md-d()
+      left: 20px
+      font-size: 20px
+      top: unset
+      bottom: 90px
+      max-width: unset
 .p-galleria-indicators
   gap: 15px
 .p-galleria .p-galleria-indicators
@@ -483,14 +516,17 @@
   width: 100%
   height: 100%
   object-fit: cover
+  //border-radius: 20px
   @include md-d
     display: none
 .gallery-img-small
   width: 100%
   height: 100%
   object-fit: cover
+  //border-radius: 20px
   @include lg-u
     display: none
+
 
 .news-img
   width: 100%
@@ -500,7 +536,7 @@
 .p-accordion .p-accordion-header .p-accordion-header-link
   padding: 16px 0 !important
   font-size: 32px
-  font-weight: 500
+  font-weight: 400
 
 .p-accordion .p-accordion-content
   padding: 16px 0 !important
@@ -518,6 +554,8 @@
   width: 95%
   left: 50%
   transform: translateX(-50%) translateY(-50%)
+  //@include sm-d()
+  //  top: 35%
 .arrow
   width: 64px
   height: 64px

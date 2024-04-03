@@ -19,6 +19,11 @@ onBeforeMount(()=>{
     })
   })
 })
+
+useSeoMeta({
+  title:`Felfri - техника для дома | ${product.value.name}`,
+  //description:'Felfri - техника для дома. Лучшее качество по доступной цене. Каталог техники для дома, ухода за волосами, для мужчин и ухода за ротовой полостью'
+})
 </script>
 
 <template>
@@ -28,8 +33,6 @@ onBeforeMount(()=>{
     <div class="breadbrumbs mb-4 md:mb-8">
       <router-link to="/">Главная</router-link>
       <router-link :to="`/catalog/${product.cat_slug}/${product.subcat_slug}`">{{product.cat_name}} / {{product.subcat_name}}</router-link>
-
-
       <p>{{product.name}}</p>
     </div>
         <div class="grid mb-4 md:mb-8">
@@ -46,28 +49,28 @@ onBeforeMount(()=>{
             </Galleria>
           </div>
       <div class="col-12 md:col-6 md:pl-8 ">
-        <p class="text-4xl md:text-6xl mb-4">{{product.name}}</p>
-        <p class="text-xxs text-gray-300">Рекомендованная цена</p>
+        <p class="text-3xl md:text-5xl mb-4 ">{{product.name}}</p>
+        <p class="text-xs text-gray-300">Рекомендованная цена</p>
         <p class="text-3xl mb-4">{{product.price}} ₽</p>
         <div class="mb-4 md:mb-8" v-html="product.description"></div>
-        <div class="flex gap-4">
-          <a :href="product.ozon_link">
-            <Button class="btnBlue " label="Купить на Ozon"/>
+        <div class="flex gap-3 flex-wrap">
+          <a class="sm:w-full md:w-auto block" :href="product.ozon_link">
+            <Button class="btnBlue px-8 w-full" label="Купить на Ozon"/>
           </a>
-          <a :href="product.wb_link">
-          <Button class="btnLink "  text label="Купить на WB"/>
+          <a class="sm:w-full md:w-auto block" :href="product.wb_link">
+          <Button class="btnLink px-8 w-full"  text label="Купить на WB"/>
           </a>
         </div>
 
       </div>
         </div>
 
-    <p class="text-4xl md:text-6xl mb-4">Характеристики</p>
+    <p class="text-2xl md:text-4xl mb-4">Характеристики</p>
     <div class="grid mb-4 md:mb-8">
       <div class="col-12 md:col-10">
         <div class="grid">
           <div class="col-12 md:col-3" v-for="feature in product.features">
-            <p class="font-semibold mb-2 ">{{feature.label}}</p>
+            <p class=" mb-2 ">{{feature.label}}</p>
             <p class="small-card-top mb-0">{{feature.value}}</p>
           </div>
         </div>
@@ -80,14 +83,14 @@ onBeforeMount(()=>{
       </div>
     </div>
 <!--    <iframe class="iframe mb-4 md:mb-8" src="https://www.youtube.com/embed/Iud-CGC42ns?si=DmEOTcVBrNSeZ7Uz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
-    <p class="text-4xl md:text-6xl mb-4">Комплектация</p>
+    <p class="text-2xl md:text-4xl mb-4">Комплектация</p>
 
         <div class="grid mb-4 md:mb-8">
           <div class="col-12 sm:col-6 md:col-3" v-for="complect in product.complects">
            <div class="flex align-items-center gap-2">
              <img :src="complect.image" alt="">
              <div class="">
-               <p class="text-lg font-medium mb-2">{{complect.label}}</p>
+               <p class="text-lg  mb-2">{{complect.label}}</p>
                <p class="small-card-top mb-0">{{complect.value}}</p>
              </div>
            </div>
@@ -95,13 +98,13 @@ onBeforeMount(()=>{
         </div>
 
     <template v-for="block in product.text_blocks">
-      <div v-if="block.is_image_right" class="grid align-items-center mb-6">
+      <div v-if="block.is_image_right" class="grid align-items-center mb-4 md:mb-6">
         <div class="col-12 md:col-6  md:px-8 flex-order-1 md:flex-order-1" v-html="block.html_content"></div>
         <div class="col-12 md:col-6 flex-order-0 md:flex-order-2">
           <img class="img" :src="block.image" alt="">
         </div>
       </div>
-      <div v-else class="grid align-items-center mb-6">
+      <div v-else class="grid align-items-center mb-4 md:mb-6">
         <div class="col-12 md:col-6">
           <img class="img" :src="block.image" alt="">
         </div>

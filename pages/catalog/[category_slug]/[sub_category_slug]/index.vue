@@ -29,16 +29,21 @@ const tabClick = (e) => {
   console.log(category.value.sub_categories[e.index])
   navigateTo(`/catalog/${route.params.category_slug}/${category.value.sub_categories[e.index].slug}`)
 }
+
+useSeoMeta({
+  title:`Felfri - техника для дома | ${category.value.name} / ${subcatName}`,
+  //description:'Felfri - техника для дома. Лучшее качество по доступной цене. Каталог техники для дома, ухода за волосами, для мужчин и ухода за ротовой полостью'
+})
 </script>
 
 <template>
 <div class="container">
-  <div class="breadbrumbs mb-8">
+  <div class="breadbrumbs mb-4 md:mb-8">
     <router-link to="/">Главная</router-link>
     <p>{{category.name}} / {{subcatName}}</p>
   </div>
   <div class="flex align-items-center justify-content-between mb-4">
-    <p class="text-6xl ">{{category.name}}</p>
+    <p class="text-4xl md:text-6xl ">{{category.name}}</p>
     <div class="flex align-items-center gap-2">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M10 18H14V16H10V18ZM3 6V8H21V6H3ZM6 13H18V11H6V13Z" fill="#9E9E9E"/>
@@ -57,7 +62,7 @@ const tabClick = (e) => {
     </div>
   </div>
 
-  <TabView class="mb-8" @tab-click="tabClick" :active-index="tabIndex">
+  <TabView class="mb-4 md:mb-8" @tab-click="tabClick" :active-index="tabIndex">
     <TabPanel :header="subcat.name" v-for="subcat in category.sub_categories" :key="subcat.id" >
       <div class="grid row-gap-1 p-0 mt-4">
         <div class="col-12 md:col-6 lg:col-3" v-for="product in subcat.products" :key="product.id">
@@ -66,7 +71,7 @@ const tabClick = (e) => {
       </div>
     </TabPanel>
   </TabView>
-  <div class="mb-8" v-html="seoText"></div>
+  <div class="mb-4 md:mb-8" v-html="seoText"></div>
 </div>
 
 </template>

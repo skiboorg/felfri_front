@@ -1,19 +1,25 @@
 <script setup lang="ts" >
-const config = useRuntimeConfig()
+
 import { useDark, useToggle } from '@vueuse/core'
 import { useCategories } from '@/composables/useCategories'
-
+const route = useRoute()
 
 const { categories, fetchCategories } = useCategories()
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 await fetchCategories()
-const visible = ref(false)
+const visibleSidebar = ref(false)
+
+
+watch(() => route.fullPath, () => {
+  console.log('route change')
+  visibleSidebar.value = false
+});
 </script>
 
 <template>
   <header class="mb-4">
-    <div class="header-top">
+    <div class="header-top hidden lg:block" >
       <div class="container flex align-items-center justify-content-between">
         <div class="flex align-items-center gap-4">
           <router-link class="header-top-link" to="/about">О нас</router-link>
@@ -41,7 +47,7 @@ const visible = ref(false)
 
               <div class="grid menu-grid">
 
-                <div class="col-2 " v-for="subcat in cat.sub_categories" :key="subcat.id">
+                <div class="col-3 " v-for="subcat in cat.sub_categories" :key="subcat.id">
                   <router-link class="sub-menu--item" :to="`/catalog/${cat.slug}/${subcat.slug}`">
                   <img class="menu-img" :src="subcat.image" alt="">
                   <p>{{subcat.name}}</p>
@@ -67,23 +73,24 @@ const visible = ref(false)
         <Button  outlined rounded size="small" class="customBtn roundedBtn" label="Мы на WB"/>
         <Button  outlined rounded size="small" class="customBtn roundedBtn" label="Мы на Ozon"/>
       </div>
-      <div class="lg:hidden cursor-pointer" @click="visible=true"><i class="pi pi-bars text-2xl"></i></div>
+      <div class="lg:hidden cursor-pointer" @click="visibleSidebar=true"><i class="pi pi-bars text-2xl"></i></div>
     </div>
   </header>
-  <Sidebar v-model:visible="visible" position="right" header=" ">
-    <div class="footer-links mb-4">
+  <Sidebar v-model:visible="visibleSidebar" position="right" header=" ">
+    <div class="flex flex-column gap-5">
 
-      <router-link class="menu-link" v-for="cat in categories?.filter(x=>x.show_at_equipment)" :key="cat.id" :to="`/catalog/${cat.slug}`" >{{cat.name}}</router-link>
-
+      <router-link class="menu-link" v-for="cat in categories?.filter(x=>x.show_at_equipment)" :key="cat.id"
+                   :to="`/catalog/${cat.slug}/${cat.sub_categories[0]?.slug}`" >{{cat.name}}</router-link>
+      <div class="separator"></div>
+      <router-link class="" to="/about">О нас</router-link>
+      <router-link class="" to="/contact">Контакты</router-link>
+      <router-link class="" to="/news">Новости</router-link>
+      <router-link class="" to="/support">Поддержка</router-link>
+      <router-link class="" to="/support">Мы на WB</router-link>
+      <router-link class="" to="/support">Мы на Ozon</router-link>
+      <Button  text @click="toggleDark()" class="theme-toggle" :icon="isDark ? 'pi pi-sun' : 'pi pi-moon'" :label="isDark ? 'Светлая тема' : 'Темная тема'"/>
     </div>
-    <div class="flex flex-column gap-3">
-      <router-link class="w-full block" to="/support">
-        <Button  outlined rounded size="small" class="customBtn roundedBtn w-full"  label="Поддержка"/>
-      </router-link>
 
-      <Button  outlined rounded size="small" class="customBtn roundedBtn" label="Мы на WB"/>
-      <Button  outlined rounded size="small" class="customBtn roundedBtn" label="Мы на Ozon"/>
-    </div>
 
  </Sidebar>
 

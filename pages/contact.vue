@@ -51,14 +51,14 @@ const formSubmit = async () => {
 </script>
 
 <template>
-  <div class="container mb-8">
-    <div class="breadbrumbs mb-6">
+  <div class="container mb-4 md:mb-8">
+    <div class="breadbrumbs mb-4 md:mb-6">
       <router-link to="/">Главная</router-link>
       <p>Связаться с нами</p>
     </div>
 
-    <h1 class="text-6xl mb-4 font-medium">Связаться с нами</h1>
-    <p class="mb-6 max-w-half line-height-3">
+    <h1 class="text-4xl md:text-6xl mb-4 font-medium">Связаться с нами</h1>
+    <p class="mb-4 md:mb-6 max-w-half line-height-3">
       В FELFRI мы высоко ценим каждого клиента и стремимся оказывать максимально качественный сервис. Если у вас возникли вопросы, проблемы или пожелания, связанные с нашей продукцией, мы всегда рады помочь!<br><br>
       Воспользуйтесь формой обратной связи ниже, и наша квалифицированная служба поддержки оперативно рассмотрит ваше обращение. Мы также доступны по следующим контактам:
     </p>
@@ -69,7 +69,7 @@ const formSubmit = async () => {
         <InputText placeholder="E-mail*" class="w-full mb-3" v-model="formData.email"/>
         <InputText placeholder="Контактный номер*" class="w-full mb-3" v-model="formData.phone"/>
         <Dropdown :options="subjects" option-label="name" option-value="val" v-model="formData.subject" placeholder="Выберите тему сообщения" class="w-full mb-3" />
-        <Textarea placeholder="Введите ваше сообщение" class="w-full mb-6" v-model="formData.text"/>
+        <Textarea placeholder="Введите ваше сообщение" class="w-full mb-4 md:mb-6" v-model="formData.text"/>
         <div class="grid">
           <div v-if="errorMsg" class="col-12">
             <span class="text-red-500" v-html="errorMsg"></span>
@@ -92,7 +92,7 @@ const formSubmit = async () => {
           <p class="grey-color mb-3">Ежедневно<br>с 8:30 до 20:30</p>
           <div class="separator mb-3"></div>
           <p class="grey-color mb-3"><a class="text-primary" href="tel:">+7 989 580 24 32</a> </p>
-          <div class="separator mb-6"></div>
+          <div class="separator mb-4 md:mb-6"></div>
           <p class="text-3xl mb-4 font-medium">Единая линия для обращений</p>
           <p class="grey-color mb-3">Ежедневно<br>с 8:30 до 20:30</p>
           <div class="separator mb-3"></div>
@@ -101,7 +101,7 @@ const formSubmit = async () => {
         </div>
       </div>
     </div>
-    <p class="mb-6 max-w-half line-height-3">
+    <p class="mb-4 md:mb-6 max-w-half line-height-3">
       Не стесняйтесь связываться с нами при любых обстоятельствах. Будь то гарантийный случай, сложности с заказом, пожелания по ассортименту или другие вопросы - мы обязательно найдем оптимальное решение и поможем разрешить любую проблему.<br><br>
       Ваша лояльность к бренду FELFRI - наш главный приоритет. Мы ценим ваш выбор и сделаем все возможное, чтобы вы остались довольны сотрудничеством с нами на все 100%!
     </p>

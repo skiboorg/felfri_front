@@ -4,13 +4,13 @@
 
 <template>
   <div class="container">
-    <div class="breadbrumbs mb-6">
+    <div class="breadbrumbs mb-4 md:mb-6">
       <router-link to="/">Главная</router-link>
       <p>Поддержка</p>
     </div>
 
-    <h1 class="text-6xl mb-4 font-medium">Поддержка</h1>
-   <div class="grid mb-8">
+    <h1 class="text-4xl md:text-6xl mb-4 font-medium">Поддержка</h1>
+   <div class="grid mb-4 md:mb-8">
       <div class="col-12 md:col-3">
         <div class="grey-block-item w-hover support-card">
           <router-link to="/instructions">
