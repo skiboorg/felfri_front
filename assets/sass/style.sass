@@ -462,8 +462,8 @@
   height: 640px
   position: relative
   user-select: none
-  @include sm-d()
-    height: auto
+  //@include sm-d()
+  //  height: auto
   &-text-big
     position: absolute
     color: white
@@ -474,7 +474,7 @@
       left: 20px
       font-size: 30px
       top: unset
-      bottom: 140px
+      bottom: 180px
 
   &-text-small
     position: absolute
@@ -486,6 +486,7 @@
     max-width: 50%
     @include md-d()
       left: 20px
+      right: 20px
       font-size: 20px
       top: unset
       bottom: 90px

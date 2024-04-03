@@ -24,7 +24,7 @@ const changeSlide = (act) => {
 <template>
 <div class="container">
 
-  <Galleria v-model:activeIndex="activeIndex" class="mb-4 md:mb-8" :value="images" :autoPlay="true"  :circular="true" containerClass="gallery"
+  <Galleria v-model:activeIndex="activeIndex" class="mb-6 md:mb-8" :value="images" :autoPlay="true"  :circular="true" containerClass="gallery"
             :showItemNavigators="false" :showThumbnails="false" :showItemNavigatorsOnHover="false" :showIndicators="true">
     <template #item="slotProps">
       <div class="banner">
@@ -54,10 +54,10 @@ const changeSlide = (act) => {
     </template>
 
   </Galleria>
-  <p class="text-4xl md:text-6xl mb-4 md:mb-6">Я выбираю технику</p>
+  <p class="text-4xl md:text-6xl mb-6 md:mb-6">Я выбираю технику</p>
 
 
-  <TabView class="mb-4 md:mb-8">
+  <TabView class="mb-6 md:mb-8">
     <TabPanel :header="cat.name_alt"  v-for="cat in categories" :key="cat.id">
       <div class="grid row-gap-6 p-0 mt-4">
         <div class="col-6 lg:col-4" v-for="subcat in cat.sub_categories">
@@ -76,27 +76,27 @@ const changeSlide = (act) => {
 
   </TabView>
   <p class="text-4xl md:text-6xl mb-4 md:mb-6">Популярные товары</p>
-  <div class="grid row-gap-6 p-0 mb-4 md:mb-8">
+  <div class="grid row-gap-6 p-0 mb-6 md:mb-8">
     <div class="col-12 md:col-6 lg:col-4" v-for="product in popular_products" :key="product.id">
       <ItemCard :product="product"/>
     </div>
   </div>
   <p class="text-4xl md:text-6xl mb-4 md:mb-6">Новинки</p>
-  <div class="grid row-gap-6 p-0 mb-4 md:mb-8">
+  <div class="grid row-gap-6 p-0 mb-6 md:mb-8">
     <div class="col-12 md:col-6 lg:col-4" v-for="product in new_products" :key="product.id">
       <ItemCard :product="product"/>
     </div>
   </div>
   <img class="img mb-4 md:mb-6" src="~assets/images/Video.png" alt="">
   <p class="text-4xl md:text-6xl mb-4 md:mb-6">Новости</p>
-  <div class="grid row-gap-6 p-0 mb-4 md:mb-8">
+  <div class="grid row-gap-6 p-0 mb-6 md:mb-8">
     <div class="col-12 md:col-6 lg:col-4 " v-for="news_item in news.results">
 
   <NewsCard :news_item="news_item"/>
   </div>
 </div>
   <p class="text-4xl md:text-6xl mb-4">Faq</p>
-  <div class="mb-4 md:mb-8">
+  <div class="mb-6 md:mb-8">
     <Accordion :activeIndex="0" expandIcon="pi pi-plus" collapseIcon="pi pi-minus">
       <AccordionTab v-for="faq in faqs" :key="faq.id">
         <template #header>
