@@ -9,7 +9,7 @@
       <p>Поддержка</p>
     </div>
 
-    <h1 class="text-4xl md:text-6xl mb-4 font-medium">Поддержка</h1>
+    <h1 class="text-4xl md:text-6xl mb-4 ">Поддержка</h1>
    <div class="grid mb-4 md:mb-8">
       <div class="col-12 md:col-3">
         <div class="grey-block-item w-hover support-card">
@@ -38,7 +38,7 @@
             </svg>
           </div>
 
-          <p class="font-medium mb-2">Гарантии</p>
+          <p class=" mb-2">Гарантии</p>
           <p>Информация о гарантиях на нашу продукцию.</p>
           </router-link>
         </div>
@@ -54,7 +54,7 @@
             </svg>
 
           </div>
-          <p class="font-medium mb-2">Обмен и возврат</p>
+          <p class=" mb-2">Обмен и возврат</p>
           <p>Информация о механизмах взаимодействия в случае оформления обмена или возврата.</p>
           </router-link>
         </div>
@@ -70,7 +70,7 @@
             </svg>
 
           </div>
-          <p class="font-medium mb-2">Связаться с нами</p>
+          <p class=" mb-2">Связаться с нами</p>
           <p>Наши контакты и обратная связь с нами.</p>
           </router-link>
         </div>

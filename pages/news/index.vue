@@ -23,7 +23,7 @@ const { data:news, pending:is_loading, refresh } = await useFetch(url)
       <router-link to="/">Главная</router-link>
       <p>Статьи</p>
     </div>
-    <h1 class="text-4xl md:text-6xl mb-4 font-medium">Статьи</h1>
+    <h1 class="text-4xl md:text-6xl mb-4 ">Статьи</h1>
     <div class="flex gap-2 flex-wrap mb-4 md:mb-6">
       <Button   rounded size="small" :class="{selected:selected_tag===''}" class="customBtn roundedBtn2"
                 label="#все" @click='updateSelectedTag("")'/>

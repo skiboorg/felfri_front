@@ -16,7 +16,7 @@ defineProps(['product','category'])
 <!--      <Button  outlined rounded size="small" class="customBtn roundedBtn2 w-full" label="Подробнее о товаре"/>-->
 <!--    </router-link>-->
     <nuxt-link  :to="`/catalog/${product.cat_slug}/${product.subcat_slug}/${product.slug}`">
-      <Button  outlined rounded size="small" class="customBtn roundedBtn1" label="Подробнее"/>
+      <Button  outlined rounded size="small" class="customBtn roundedBtn1 roundedBtn2" label="Подробнее"/>
     </nuxt-link>
 
   </div>

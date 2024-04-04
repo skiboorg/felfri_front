@@ -62,7 +62,7 @@ useSeoMeta({
     </div>
   </div>
 
-  <TabView class="mb-4 md:mb-8" @tab-click="tabClick" :active-index="tabIndex">
+  <TabView class="mb-4 md:mb-8" @tab-click="tabClick"  :active-index="tabIndex">
     <TabPanel :header="subcat.name" v-for="subcat in category.sub_categories" :key="subcat.id" >
       <div class="grid row-gap-1 p-0 mt-4">
         <div class="col-12 md:col-6 lg:col-3" v-for="product in subcat.products" :key="product.id">

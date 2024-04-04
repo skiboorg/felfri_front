@@ -5,6 +5,7 @@ await fetchData()
 
 
 const images = ref([])
+const selectedImgIndex = ref(0)
 
 onBeforeMount(()=>{
   images.value.push({
@@ -24,12 +25,13 @@ useSeoMeta({
   title:`Felfri - техника для дома | ${product.value.name}`,
   //description:'Felfri - техника для дома. Лучшее качество по доступной цене. Каталог техники для дома, ухода за волосами, для мужчин и ухода за ротовой полостью'
 })
+
+
 </script>
 
 <template>
 
   <div class="container">
-
     <div class="breadbrumbs mb-4 md:mb-8">
       <router-link to="/">Главная</router-link>
       <router-link :to="`/catalog/${product.cat_slug}/${product.subcat_slug}`">{{product.cat_name}} / {{product.subcat_name}}</router-link>
@@ -37,27 +39,46 @@ useSeoMeta({
     </div>
         <div class="grid mb-4 md:mb-8">
           <div class="col-12 md:col-6">
-            <Galleria :value="images" :numVisible="5" thumbnailsPosition="right" >
-              <template #item="slotProps">
-                <img :src="slotProps.item.image" :alt="slotProps.item.alt" class="gallery_img" />
-              </template>
-              <template #thumbnail="slotProps">
-                <div class="grid grid-nogutter justify-content-center">
-                  <img :src="slotProps.item.image" class="gallery_thumb" />
+            <client-only>
+              <div class="gallery-wrapper">
+                <div class="gallery-main" :style="{'background-image': `url(${images[selectedImgIndex]?.image})`}">
+                  <!--                <img :src="images[selectedImgIndex].image" alt="">-->
                 </div>
-              </template>
-            </Galleria>
+                <div class="gallery-scroller-wrapper">
+                  <div class="gallery-scroller">
+                    <div class="gallery-scroller-image cursor-pointer"
+
+                         @click="selectedImgIndex=index"
+                         :class="{'image-selected':selectedImgIndex===index}" v-for="(img,index) in images">
+                      <img :src="img.image"  alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </client-only>
+
+
+<!--            <Galleria :value="images" :numVisible="3" thumbnailsPosition="right" >-->
+<!--              <template #item="slotProps">-->
+<!--                <img :src="slotProps.item.image" :alt="slotProps.item.alt" class="gallery_img" />-->
+<!--              </template>-->
+<!--              <template #thumbnail="slotProps">-->
+<!--                <div class="grid grid-nogutter justify-content-center">-->
+<!--                  <img :src="slotProps.item.image" class="gallery_thumb" />-->
+<!--                </div>-->
+<!--              </template>-->
+<!--            </Galleria>-->
           </div>
-      <div class="col-12 md:col-6 md:pl-8 ">
+      <div class="col-12 md:col-6 pl-2 md:pl-4 lg:pl-8 ">
         <p class="text-3xl md:text-5xl mb-4 ">{{product.name}}</p>
         <p class="text-xs text-gray-300">Рекомендованная цена</p>
         <p class="text-3xl mb-4">{{product.price}} ₽</p>
         <div class="mb-4 md:mb-8" v-html="product.description"></div>
         <div class="flex gap-3 flex-wrap">
-          <a class="sm:w-full md:w-auto block" :href="product.ozon_link">
+          <a class="w-full md:w-auto block" :href="product.ozon_link">
             <Button class="btnBlue px-8 w-full" label="Купить на Ozon"/>
           </a>
-          <a class="sm:w-full md:w-auto block" :href="product.wb_link">
+          <a class="w-full md:w-auto block" :href="product.wb_link">
           <Button class="btnLink px-8 w-full"  text label="Купить на WB"/>
           </a>
         </div>

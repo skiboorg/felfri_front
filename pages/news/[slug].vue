@@ -11,9 +11,9 @@ const { data:news_item, pending:is_loading, refresh } = await useFetch(config.pu
       <router-link to="/news">Статьи</router-link>
       <p>{{news_item.name}}</p>
     </div>
-    <h1 class="text-4xl md:text-6xl mb-4 font-medium">{{news_item.name}}</h1>
+    <h1 class="text-4xl md:text-6xl mb-4 ">{{news_item.name}}</h1>
     <div class="mb-4 md:mb-6">
-      <p class="font-medium"> <span class="grey-color">
+      <p class=""> <span class="grey-color">
           Время чтения {{news_item.time_to_read}} | {{new Date(news_item.created).toLocaleDateString()}} |</span>
         <span class="tag">#{{news_item.tag.name}}</span></p>
     </div>

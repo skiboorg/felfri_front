@@ -76,20 +76,20 @@ const changeSlide = (act) => {
 
   </TabView>
   <p class="text-4xl md:text-6xl mb-4 md:mb-6">Популярные товары</p>
-  <div class="grid row-gap-6 p-0 mb-6 md:mb-8">
+  <div class="grid row-gap-2 p-0 mb-6 md:mb-8">
     <div class="col-12 md:col-6 lg:col-4" v-for="product in popular_products" :key="product.id">
       <ItemCard :product="product"/>
     </div>
   </div>
   <p class="text-4xl md:text-6xl mb-4 md:mb-6">Новинки</p>
-  <div class="grid row-gap-6 p-0 mb-6 md:mb-8">
+  <div class="grid row-gap-2 p-0 mb-6 md:mb-8">
     <div class="col-12 md:col-6 lg:col-4" v-for="product in new_products" :key="product.id">
       <ItemCard :product="product"/>
     </div>
   </div>
   <img class="img mb-4 md:mb-6" src="~assets/images/Video.png" alt="">
   <p class="text-4xl md:text-6xl mb-4 md:mb-6">Новости</p>
-  <div class="grid row-gap-6 p-0 mb-6 md:mb-8">
+  <div class="grid row-gap-2 p-0 mb-6 md:mb-8">
     <div class="col-12 md:col-6 lg:col-4 " v-for="news_item in news.results">
 
   <NewsCard :news_item="news_item"/>
@@ -100,7 +100,7 @@ const changeSlide = (act) => {
     <Accordion :activeIndex="0" expandIcon="pi pi-plus" collapseIcon="pi pi-minus">
       <AccordionTab v-for="faq in faqs" :key="faq.id">
         <template #header>
-                    <span class="text-3xl md:text-5xl">
+                    <span >
                         <p>{{faq.question}}</p>
                     </span>
         </template>

@@ -57,7 +57,7 @@ const formSubmit = async () => {
       <p>Связаться с нами</p>
     </div>
 
-    <h1 class="text-4xl md:text-6xl mb-4 font-medium">Связаться с нами</h1>
+    <h1 class="text-4xl md:text-6xl mb-4 ">Связаться с нами</h1>
     <p class="mb-4 md:mb-6 max-w-half line-height-3">
       В FELFRI мы высоко ценим каждого клиента и стремимся оказывать максимально качественный сервис. Если у вас возникли вопросы, проблемы или пожелания, связанные с нашей продукцией, мы всегда рады помочь!<br><br>
       Воспользуйтесь формой обратной связи ниже, и наша квалифицированная служба поддержки оперативно рассмотрит ваше обращение. Мы также доступны по следующим контактам:
@@ -85,15 +85,15 @@ const formSubmit = async () => {
 
 
       </div>
-      <div v-else class="col-12 md:col-8 text-6xl mb-4 font-medium text-green-500">Сообщение отправлено</div>
+      <div v-else class="col-12 md:col-8 text-6xl mb-4  text-green-500">Сообщение отправлено</div>
       <div class="col-12 md:col-4">
         <div class="grey-block p-5 h-full">
-          <p class="text-3xl mb-4 font-medium">Тех поддержка</p>
+          <p class="text-3xl mb-4 ">Тех поддержка</p>
           <p class="grey-color mb-3">Ежедневно<br>с 8:30 до 20:30</p>
           <div class="separator mb-3"></div>
           <p class="grey-color mb-3"><a class="text-primary" href="tel:">+7 989 580 24 32</a> </p>
           <div class="separator mb-4 md:mb-6"></div>
-          <p class="text-3xl mb-4 font-medium">Единая линия для обращений</p>
+          <p class="text-3xl mb-4 ">Единая линия для обращений</p>
           <p class="grey-color mb-3">Ежедневно<br>с 8:30 до 20:30</p>
           <div class="separator mb-3"></div>
           <p class="grey-color mb-3"><a class="text-primary" href="tel:">+7 989 580 24 32</a></p>

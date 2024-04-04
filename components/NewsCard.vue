@@ -1,7 +1,7 @@
 <template>
   <router-link :to="`/news/${news_item.slug}`">
     <img class="news-img mb-4 border-round-2xl" :src="news_item.image" alt="">
-    <p class=" text-xl mb-3">{{news_item.name}}</p>
+    <p class="font-medium text-xl mb-3">{{news_item.name}}</p>
     <p class="mb-3">{{news_item.description}}</p>
     <p class=""> <span class="grey-color">
           Время чтения {{news_item.time_to_read}} | {{new Date(news_item.created).toLocaleDateString()}} |</span>
