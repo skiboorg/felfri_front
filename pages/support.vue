@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="container">
+  <div class="container static-page">
     <div class="breadbrumbs mb-4 md:mb-6">
       <router-link to="/">Главная</router-link>
       <p>Поддержка</p>
@@ -24,8 +24,8 @@
             </svg>
 
           </div>
-          <p class="font-bold mb-2">Инструкции</p>
-          <p>Каталог инструкций для всех изделий, представленных на нашем сайте бренда Felfri.</p>
+          <p class="font-medium mb-2">Инструкции</p>
+          <p class="grey-color">Каталог инструкций для всех изделий, представленных на нашем сайте бренда Felfri.</p>
           </router-link>
         </div>
       </div>
@@ -38,8 +38,8 @@
             </svg>
           </div>
 
-          <p class=" mb-2">Гарантии</p>
-          <p>Информация о гарантиях на нашу продукцию.</p>
+          <p class="font-medium mb-2">Гарантии</p>
+          <p class="grey-color">Информация о гарантиях на нашу продукцию.</p>
           </router-link>
         </div>
       </div>
@@ -54,8 +54,8 @@
             </svg>
 
           </div>
-          <p class=" mb-2">Обмен и возврат</p>
-          <p>Информация о механизмах взаимодействия в случае оформления обмена или возврата.</p>
+          <p class="font-medium mb-2">Обмен и возврат</p>
+          <p class="grey-color">Информация о механизмах взаимодействия в случае оформления обмена или возврата.</p>
           </router-link>
         </div>
       </div>
@@ -70,8 +70,8 @@
             </svg>
 
           </div>
-          <p class=" mb-2">Связаться с нами</p>
-          <p>Наши контакты и обратная связь с нами.</p>
+          <p class="font-medium mb-2">Связаться с нами</p>
+          <p class="grey-color">Наши контакты и обратная связь с нами.</p>
           </router-link>
         </div>
       </div>

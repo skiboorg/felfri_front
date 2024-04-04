@@ -69,9 +69,10 @@ watch(() => route.fullPath, () => {
         <router-link class="header-top-link" to="/support">
           <Button  outlined rounded size="small" class="customBtn roundedBtn"  label="Поддержка"/>
         </router-link>
+        <a href="https://www.wildberries.ru/brands/310412467-felfri" target="_blank"> <Button  outlined rounded size="small" class="customBtn roundedBtn" label="Мы на WB"/></a>
+        <a href="https://www.ozon.ru/seller/felfri-802356/products/?miniapp=seller_802356" target="_blank"><Button  outlined rounded size="small" class="customBtn roundedBtn" label="Мы на Ozon"/></a>
 
-        <Button  outlined rounded size="small" class="customBtn roundedBtn" label="Мы на WB"/>
-        <Button  outlined rounded size="small" class="customBtn roundedBtn" label="Мы на Ozon"/>
+
       </div>
       <div class="lg:hidden cursor-pointer" @click="visibleSidebar=true"><i class="pi pi-bars text-2xl"></i></div>
     </div>
@@ -86,8 +87,10 @@ watch(() => route.fullPath, () => {
       <router-link class="" to="/contact">Контакты</router-link>
       <router-link class="" to="/news">Новости</router-link>
       <router-link class="" to="/support">Поддержка</router-link>
-      <router-link class="" to="/support">Мы на WB</router-link>
-      <router-link class="" to="/support">Мы на Ozon</router-link>
+      <a href="https://www.wildberries.ru/brands/310412467-felfri" target="_blank">Мы на WB</a>
+      <a href="https://www.ozon.ru/seller/felfri-802356/products/?miniapp=seller_802356" target="_blank">Мы на Ozon</a>
+
+
       <Button  text @click="toggleDark()" class="theme-toggle" :icon="isDark ? 'pi pi-sun' : 'pi pi-moon'" :label="isDark ? 'Светлая тема' : 'Темная тема'"/>
     </div>
 

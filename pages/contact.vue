@@ -91,12 +91,12 @@ const formSubmit = async () => {
           <p class="text-3xl mb-4 ">Тех поддержка</p>
           <p class="grey-color mb-3">Ежедневно<br>с 8:30 до 20:30</p>
           <div class="separator mb-3"></div>
-          <p class="grey-color mb-3"><a class="text-primary" href="tel:">+7 989 580 24 32</a> </p>
+          <p class="grey-color mb-3"><a class="text-primary" href="tel:+7 (916) 572-30-93">+7 (916) 572-30-93</a> </p>
           <div class="separator mb-4 md:mb-6"></div>
           <p class="text-3xl mb-4 ">Единая линия для обращений</p>
           <p class="grey-color mb-3">Ежедневно<br>с 8:30 до 20:30</p>
           <div class="separator mb-3"></div>
-          <p class="grey-color mb-3"><a class="text-primary" href="tel:">+7 989 580 24 32</a></p>
+          <p class="grey-color mb-3"><a class="text-primary" href="tel:+7 (916) 572-30-93">+7 (916) 572-30-93</a></p>
           <div class="separator "></div>
         </div>
       </div>

@@ -4,8 +4,8 @@ defineProps(['product','category'])
 
 <template>
   <div class="small-card">
-    <p  v-if="category" class="small-card-top">{{product.subcat_name}}</p>
-    <p v-else class="small-card-top">{{product.subcat_text}}</p>
+    <p class="small-card-top">{{product.subcat_name}}</p>
+
 
 
     <img class="main_img " :src="product.image_main" alt="">

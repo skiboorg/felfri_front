@@ -71,7 +71,7 @@ useSeoMeta({
           </div>
       <div class="col-12 md:col-6 pl-2 md:pl-4 lg:pl-8 ">
         <p class="text-3xl md:text-5xl mb-4 ">{{product.name}}</p>
-        <p class="text-xs text-gray-300">Рекомендованная цена</p>
+        <p class="text-xs text-gray-300 mb-2">Рекомендованная цена</p>
         <p class="text-3xl mb-4">{{product.price}} ₽</p>
         <div class="mb-4 md:mb-8" v-html="product.description"></div>
         <div class="flex gap-3 flex-wrap">
@@ -91,7 +91,7 @@ useSeoMeta({
       <div class="col-12 md:col-10">
         <div class="grid">
           <div class="col-12 md:col-3" v-for="feature in product.features">
-            <p class=" mb-2 ">{{feature.label}}</p>
+            <p class="mb-2 font-medium">{{feature.label}}</p>
             <p class="small-card-top mb-0">{{feature.value}}</p>
           </div>
         </div>
@@ -111,7 +111,7 @@ useSeoMeta({
            <div class="flex align-items-center gap-2">
              <img :src="complect.image" alt="">
              <div class="">
-               <p class="text-lg  mb-2">{{complect.label}}</p>
+               <p class="mb-2 font-medium">{{complect.label}}</p>
                <p class="small-card-top mb-0">{{complect.value}}</p>
              </div>
            </div>
@@ -122,12 +122,12 @@ useSeoMeta({
       <div v-if="block.is_image_right" class="grid align-items-center mb-4 md:mb-6">
         <div class="col-12 md:col-6  md:px-8 flex-order-1 md:flex-order-1" v-html="block.html_content"></div>
         <div class="col-12 md:col-6 flex-order-0 md:flex-order-2">
-          <img class="img" :src="block.image" alt="">
+          <img class="img rounded" :src="block.image" alt="">
         </div>
       </div>
       <div v-else class="grid align-items-center mb-4 md:mb-6">
         <div class="col-12 md:col-6">
-          <img class="img" :src="block.image" alt="">
+          <img class="img rounded"  :src="block.image" alt="">
         </div>
         <div class="col-12 md:col-6  md:px-8" v-html="block.html_content"></div>
       </div>
