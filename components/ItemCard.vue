@@ -3,7 +3,7 @@ defineProps(['product','category'])
 </script>
 
 <template>
-  <div class="small-card">
+  <div class="small-card" @click="navigateTo(`/catalog/${product.cat_slug}/${product.subcat_slug}/${product.slug}`)">
     <p class="small-card-top">{{product.subcat_name}}</p>
 
 

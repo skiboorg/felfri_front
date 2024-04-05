@@ -162,9 +162,15 @@
     right: 40px
     bottom: 40px
     @include md-d
-      width: 80%
+      position: unset
+      width: 100%
       height: auto
       right: 20px
+      bottom: 0
+  &-image-wrapper
+    display: flex
+    align-items: center
+    justify-content: center
   &-title
     color: var(--textColor)
     font-size: 32px

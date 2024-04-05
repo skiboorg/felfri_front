@@ -33,8 +33,8 @@ watch(() => route.fullPath, () => {
       <router-link to="/">
 
 
-        <img class="logo" v-if="isDark" src="~assets/images/logo-w.svg" alt="">
-        <img class="logo" v-else src="~assets/images/logo-b.svg" alt="">
+        <img class="logo"  src="~assets/images/logo.png" alt="">
+
       </router-link>
 
       <div class="align-items-center gap-4 hidden lg:flex">
