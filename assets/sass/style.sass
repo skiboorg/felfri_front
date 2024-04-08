@@ -505,9 +505,9 @@
     font-size: 45px
     @include md-d()
       left: 20px
-      font-size: 30px
+      font-size: 25px
       top: unset
-      bottom: 180px
+      bottom: 200px
 
   &-text-small
     position: absolute
@@ -520,9 +520,9 @@
     @include md-d()
       left: 20px
       right: 20px
-      font-size: 20px
+      font-size: 11px
       top: unset
-      bottom: 90px
+      bottom: 80px
       max-width: unset
 .p-galleria-indicators
   gap: 15px
@@ -682,4 +682,29 @@
         width: 100%
         margin-bottom: 10px
 
+.badges
+  position: absolute
+  right: 0
+  top: 75px
+  display: flex
+  flex-direction: column
+  gap: 5px
 
+.badge
+  width: 100px
+  height: 30px
+  display: flex
+  align-items: center
+  justify-content: center
+  color: white
+  font-size: 10px
+  border-top-left-radius: 8px
+  border-bottom-left-radius: 8px
+  &.is-new
+    background: #FC632C
+  &.is-pop
+    background: #039ED4
+  &.is-not-in-stock
+    background: #CB1959
+  &.is-arrive
+    background: #39BA6D
