@@ -15,7 +15,7 @@ defineProps(['product','category'])
     <div class="badges">
       <div v-if="product.is_new" class="badge is-new">Новинка</div>
       <div v-if="product.is_popular" class="badge is-pop">Популярный</div>
-      <div v-if="product.is_in_stock" class="badge is-not-in-stock">Нет в наличии</div>
+      <div v-if="!product.is_in_stock" class="badge is-not-in-stock">Нет в наличии</div>
       <div v-if="product.is_arrive" class="badge is-arrive">В пути</div>
     </div>
 
