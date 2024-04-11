@@ -23,9 +23,18 @@ defineProps(['product','category'])
 <!--    <router-link v-if="category" :to="`/catalog/${category.slug}/${product.slug}`">-->
 <!--      <Button  outlined rounded size="small" class="customBtn roundedBtn2 w-full" label="Подробнее о товаре"/>-->
 <!--    </router-link>-->
-    <nuxt-link  :to="`/catalog/${product.cat_slug}/${product.subcat_slug}/${product.slug}`">
-      <Button  outlined rounded size="small" class="customBtn roundedBtn1 roundedBtn2" label="Подробнее"/>
-    </nuxt-link>
+    <template v-if="!product.is_in_stock">
+      <Button style="background: #FE3A0F;color: white; width: 100%; font-size: 14px; font-weight: 400" text label="Нет в наличии"/>
+    </template>
+    <template v-else-if="product.is_arrive">
+      <Button style="background: #2FA8EC;color: white; width: 100%; font-size: 14px; font-weight: 400" text label="В пути"/>
+    </template>
+    <template v-else>
+      <nuxt-link  :to="`/catalog/${product.cat_slug}/${product.subcat_slug}/${product.slug}`">
+        <Button  outlined rounded size="small" class="customBtn roundedBtn1 roundedBtn2" label="Подробнее"/>
+      </nuxt-link>
+    </template>
+
 
   </div>
 </template>

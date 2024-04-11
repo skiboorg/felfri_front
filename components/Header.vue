@@ -5,16 +5,23 @@ import { useCategories } from '@/composables/useCategories'
 const route = useRoute()
 
 const { categories, fetchCategories } = useCategories()
-const isDark = useDark()
-const toggleDark = useToggle(isDark)
+
+let isDark
+const toggleDark = useToggle(useDark())
 await fetchCategories()
 const visibleSidebar = ref(false)
 
+onBeforeMount(()=>{
+  isDark = useDark()
+
+})
 
 watch(() => route.fullPath, () => {
   console.log('route change')
   visibleSidebar.value = false
 });
+
+//const logo = computed(()=>isDark.value ? '/logo-w.svg':'logo-b.svg')
 </script>
 
 <template>
@@ -31,9 +38,10 @@ watch(() => route.fullPath, () => {
     </div>
     <div class="container flex align-items-center justify-content-between py-4">
       <router-link to="/">
+        <img class="logo white"  src="~assets/images/logo-w.svg" alt="">
+        <img class="logo black"  src="~assets/images/logo-b.svg" alt="">
 
-
-        <img class="logo"  src="~assets/images/logo.png" alt="">
+<!--        <img class="logo"  src="~assets/images/logo.png" alt="">-->
 
       </router-link>
 

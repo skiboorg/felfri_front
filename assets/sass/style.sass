@@ -311,6 +311,7 @@
   width: 124px
   height: 26px
   object-fit: contain
+  display: block
 .tag
   color: var(--tagColor)
 
@@ -708,3 +709,13 @@
     background: #CB1959
   &.is-arrive
     background: #39BA6D
+
+html
+  .logo.white
+    display: none
+
+html.dark
+  .logo.white
+    display: block
+  .logo.black
+    display: none
