@@ -3,7 +3,8 @@
     <div class="container">
       <div class="grid mb-4 gap-3 md:gap-0 " >
         <div class="col-12 md:col-6 text-center md:text-left">
-          <img class="logo"  src="~assets/images/logo.png" alt="">
+
+          <img class="logo "  src="~assets/images/logo-b.svg" alt="">
         </div>
         <div class="col-2 hidden lg:block">
           <p class="font-medium mb-4">Карта сайта</p>
