@@ -19,6 +19,7 @@ import Textarea from 'primevue/textarea';
 import OverlayPanel from 'primevue/overlaypanel';
 import Sidebar from 'primevue/sidebar';
 import FileUpload from 'primevue/fileupload';
+import Carousel from 'primevue/carousel';
 export default defineNuxtPlugin(nuxtApp => {
     nuxtApp.vueApp.use(PrimeVue, {ripple: false});
     nuxtApp.vueApp.component('Slider', Slider)
@@ -40,6 +41,7 @@ export default defineNuxtPlugin(nuxtApp => {
     nuxtApp.vueApp.component('OverlayPanel', OverlayPanel)
     nuxtApp.vueApp.component('Sidebar', Sidebar)
     nuxtApp.vueApp.component('FileUpload', FileUpload)
+    nuxtApp.vueApp.component('Carousel', Carousel)
 
     nuxtApp.vueApp.directive('tooltip', Tooltip)
 })

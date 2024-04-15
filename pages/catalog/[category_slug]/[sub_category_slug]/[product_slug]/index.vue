@@ -118,6 +118,11 @@ useSeoMeta({
           </div>
         </div>
 
+        <template v-if="product.youtube_embed_code">
+          <iframe class="video" :src="`https://www.youtube.com/embed/${product.youtube_embed_code}`" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </template>
+
+
     <template v-for="block in product.text_blocks">
       <div v-if="block.is_image_right" class="grid align-items-center mb-4 md:mb-6">
         <div class="col-12 md:col-6  md:px-8 flex-order-1 md:flex-order-1" v-html="block.html_content"></div>

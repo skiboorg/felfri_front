@@ -19,6 +19,29 @@ const changeSlide = (act) => {
     activeIndex.value - 1 < 0 ? activeIndex.value = images.value.length - 1 : activeIndex.value -=1
   }
 }
+
+const responsiveOptions = ref([
+  {
+    breakpoint: '1400px',
+    numVisible: 4,
+    numScroll: 1
+  },
+  {
+    breakpoint: '1199px',
+    numVisible: 3,
+    numScroll: 1
+  },
+  {
+    breakpoint: '767px',
+    numVisible: 2,
+    numScroll: 1
+  },
+  {
+    breakpoint: '575px',
+    numVisible: 1,
+    numScroll: 1
+  }
+]);
 </script>
 
 <template>
@@ -45,8 +68,8 @@ const changeSlide = (act) => {
           </div>
           <img :src="slotProps.item.image_big" :alt="slotProps.item.alt" class="gallery-img-big" />
           <img :src="slotProps.item.image_small" :alt="slotProps.item.alt" class="gallery-img-small" />
-          <p class="banner-text-big">{{slotProps.item.text_big}}</p>
-          <p class="banner-text-small">{{slotProps.item.text_small}}</p>
+          <p v-if="slotProps.item.text_big" class="banner-text-big">{{slotProps.item.text_big}}</p>
+          <p v-if="slotProps.item.text_small" class="banner-text-small">{{slotProps.item.text_small}}</p>
         </div>
       </template>
 
@@ -72,17 +95,20 @@ const changeSlide = (act) => {
 
     </TabView>
     <p class="text-4xl md:text-6xl mb-4 md:mb-6">Популярные товары</p>
-    <div class="grid row-gap-2 p-0 mb-6 md:mb-8">
-      <div class="col-12 md:col-6 lg:col-3" v-for="product in popular_products" :key="product.id">
-        <ItemCard :product="product"/>
-      </div>
-    </div>
+<!--   -->
+    <Carousel class="mb-6 md:mb-8" :value="popular_products" :numVisible="4" :numScroll="1"  :autoplay-interval="2000" :showNavigators="false" :responsive-options="responsiveOptions" circular >
+      <template #item="slotProps">
+        <ItemCard class="m-2  p-3" :product="slotProps.data"/>
+      </template>
+    </Carousel>
     <p class="text-4xl md:text-6xl mb-4 md:mb-6">Новинки</p>
-    <div class="grid row-gap-2 p-0 mb-6 md:mb-8">
-      <div class="col-12 md:col-6 lg:col-3" v-for="product in new_products" :key="product.id">
-        <ItemCard :product="product"/>
-      </div>
-    </div>
+
+    <Carousel class="mb-6 md:mb-8" :value="new_products" :numVisible="4" :numScroll="1"  :autoplay-interval="3000" :showNavigators="false" :responsive-options="responsiveOptions" circular >
+      <template #item="slotProps">
+        <ItemCard class="m-2  p-3" :product="slotProps.data"/>
+      </template>
+    </Carousel>
+
     <!--  <img class="img mb-4 md:mb-6" src="~assets/images/Video.png" alt="">-->
     <p class="text-4xl md:text-6xl mb-4 md:mb-6">Новости</p>
     <div class="grid row-gap-2 p-0 mb-6 md:mb-8">
