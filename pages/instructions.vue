@@ -15,13 +15,11 @@ await fetchData()
     <div class="mb-4 md:mb-6" v-for="item in data.filter(x=>x.products.length>0)" :key="item.id">
       <p class="text-3xl mb-4 md:mb-6 ">{{item.name}}</p>
       <div class="grid">
-        <div class="col-12 md:col-6 lg:col-3">
-          <div class="grey-block-item w-hover" v-for="product in item.products" :key="product.id">
-
+        <div class="col-12 md:col-6 lg:col-3" v-for="product in item.products" :key="product.id">
+          <div class="grey-block-item w-hover" >
             <img class="grey-block-image" :src="product.image_main" alt="">
-            <p class=" mb-3">{{product.name}}</p>
+            <p class="small-card-title">{{product.name}}</p>
             <a target="_blank" :href="product.file" class="grey-block-link">Скачать инструкцию</a>
-
           </div>
         </div>
       </div>
