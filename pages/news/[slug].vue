@@ -35,7 +35,9 @@ const { data:news_item, pending:is_loading, refresh } = await useFetch(config.pu
       <div class="grid mb-4 md:mb-6 align-items-center" v-else-if="block.type.slug === 'tekst-kartinka'">
         <div class="col-12 md:col-6" v-html="block.html_content1"></div>
         <div class="col-12 md:col-6" ><img class="img" :src="block.image" alt=""></div>
-
+      </div>
+      <div class="grid mb-4 md:mb-6 align-items-center" v-else-if="block.type.slug === 'tekst-shirokij'">
+        <div class="col-12 " v-html="block.html_content1"></div>
       </div>
     </div>
   </div>

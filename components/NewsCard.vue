@@ -5,7 +5,7 @@
     <p class="mb-3">{{news_item.description}}</p>
     <p class=""> <span class="grey-color">
           Время чтения {{news_item.time_to_read}} | {{new Date(news_item.created).toLocaleDateString()}} |</span>
-      <span class="tag">#{{news_item.tag.name}}</span></p>
+      <span class="tag">#{{news_item.tag?.name}}</span></p>
   </router-link>
 </template>
 
