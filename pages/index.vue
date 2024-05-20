@@ -6,7 +6,7 @@ const {data:images, fetchData:fetchBanners} = useHttp(`/api/data/banners`)
 await fetchBanners()
 const {data:faqs, fetchData:fetchFaq} = useHttp(`/api/data/faq`)
 await fetchFaq()
-const {data:news, fetchData:fetchNews} = useHttp(`/api/news/all`)
+const {data:news, fetchData:fetchNews} = useHttp(`/api/news/index`)
 await fetchNews()
 
 await fetchCategories()
@@ -110,12 +110,17 @@ const responsiveOptions = ref([
     </Carousel>
 
     <!--  <img class="img mb-4 md:mb-6" src="~assets/images/Video.png" alt="">-->
-    <p class="text-4xl md:text-6xl mb-4 md:mb-6">Новости</p>
-    <div class="grid row-gap-2 p-0 mb-6 md:mb-8">
-      <div class="col-12 md:col-6 lg:col-4 " v-for="news_item in news.results">
-
+    <p class="text-4xl md:text-6xl mb-4 md:mb-6">Статьи и новости</p>
+    <div class="grid row-gap-2 p-0 mb-4 ">
+      <div class="col-12 md:col-6 lg:col-4 " v-for="news_item in news">
         <NewsCard :news_item="news_item"/>
       </div>
+
+    </div>
+    <div class="flex justify-content-center mb-6 md:mb-8">
+      <nuxt-link  to='/news' class="block">
+        <Button  outlined rounded size="small" class="customBtn roundedBtn1 roundedBtn2" label="Больше статей и новостей"/>
+      </nuxt-link>
     </div>
     <p class="text-4xl md:text-6xl mb-4">Faq</p>
     <div class="mb-6 md:mb-8">

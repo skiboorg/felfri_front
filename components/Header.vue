@@ -31,7 +31,7 @@ watch(() => route.fullPath, () => {
         <div class="flex align-items-center gap-4">
           <router-link class="header-top-link" to="/about">О нас</router-link>
           <router-link class="header-top-link" to="/contact">Контакты</router-link>
-          <router-link class="header-top-link" to="/news">Новости</router-link>
+          <router-link class="header-top-link" to="/news">Статьи</router-link>
         </div>
         <Button  text @click="toggleDark()" class="theme-toggle" :icon="isDark ? 'pi pi-sun' : 'pi pi-moon'" :label="isDark ? 'Светлая тема' : 'Темная тема'"/>
       </div>

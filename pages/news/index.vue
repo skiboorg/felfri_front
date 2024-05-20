@@ -13,7 +13,10 @@ const updateSelectedTag = (tag) => {
 const url = computed(() => config.public.APIURL + `/api/news/all?tag=${selected_tag.value}&page=${current_page.value}`);
 const { data:news, pending:is_loading, refresh } = await useFetch(url)
 
-
+const pageChange = async (event) => {
+  console.log('ddd',event.page)
+  current_page.value = event.page+1
+};
 
 </script>
 
@@ -35,13 +38,12 @@ const { data:news, pending:is_loading, refresh } = await useFetch(url)
         <NewsCard :news_item="news_item"/>
       </div>
     </div>
-<!--    <div class="">-->
-<!--      <Paginator-->
-
-<!--          :rows="40"-->
-<!--          :totalRecords="120">-->
-<!--      </Paginator>-->
-<!--    </div>-->
+    <div class="">
+      <Paginator
+          :rows="15"
+          @page="pageChange" :totalRecords="news?.count">
+      </Paginator>
+    </div>
   </div>
 </template>
 
