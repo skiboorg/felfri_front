@@ -1,10 +1,10 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
 const subjects = [
-  {name:'тема1',val:'тема1'}   ,
-  {name:'тема2',val:'тема2'}   ,
-  {name:'тема3',val:'тема3'}   ,
-  {name:'тема4',val:'тема4'}   ,
+  {name:'Проблема с качеством',val:'Проблема с качеством'}   ,
+  {name:'Гарантийный ремонт',val:'Гарантийный ремонт'}   ,
+  {name:'Вопрос о работе оборудования',val:'Вопрос о работе оборудования'}   ,
+  {name:'Иное',val:'Иное'}   ,
 ]
 
 const loading = ref(false)
