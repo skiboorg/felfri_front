@@ -71,7 +71,8 @@ useSeoMeta({
           </div>
       <div class="col-12 md:col-6 pl-2 md:pl-4 lg:pl-8 ">
         <p class="text-3xl md:text-5xl mb-4 ">{{product.name}}</p>
-        <p class="text-xs text-gray-300 mb-2">Рекомендованная цена</p>
+<!--        <p class="text-xs text-gray-300 mb-2">Рекомендованная цена</p>-->
+
         <p class="text-3xl mb-4">{{product.price}} ₽</p>
         <div class="mb-4 md:mb-8" v-html="product.description"></div>
         <template v-if="!product.is_in_stock">
