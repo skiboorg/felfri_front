@@ -26,7 +26,7 @@
           <p class="font-medium mb-4">Контакты</p>
           <div class="footer-links">
             <a href="tel:+7 (916) 572-30-93">+7 (916) 572-30-93</a>
-            <a href="mailto:sdfdsf">into@felfri.ru</a>
+            <a href="mailto:into@felfri.ru">into@felfri.ru</a>
           <p>Пн–Пт: 9:00-20:00 МСК</p>
           </div>
         </div>

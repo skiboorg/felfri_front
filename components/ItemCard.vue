@@ -11,7 +11,8 @@ defineProps(['product','category'])
     <img class="main_img " :src="product.image_main" alt="">
     <img class="alt_img" :src="product.image_alt" alt="">
     <p class="small-card-title">{{product.name}}</p>
-    <p class="small-card-price">{{product.price}} ₽</p>
+    <p v-if="parseInt(product.show_price) > 0" class="small-card-price">{{product.show_price}} ₽</p>
+    <p v-else class="small-card-price">Товар в пути</p>
     <div class="badges">
       <div v-if="product.is_new" class="badge is-new">Новинка</div>
       <div v-if="product.is_popular" class="badge is-pop">Популярный</div>

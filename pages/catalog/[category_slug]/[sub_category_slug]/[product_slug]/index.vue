@@ -73,7 +73,8 @@ useSeoMeta({
         <p class="text-3xl md:text-5xl mb-4 ">{{product.name}}</p>
 <!--        <p class="text-xs text-gray-300 mb-2">Рекомендованная цена</p>-->
 
-        <p class="text-3xl mb-4">{{product.price}} ₽</p>
+        <p v-if="parseInt(product.show_price) > 0" class="text-3xl mb-4">{{product.show_price}} ₽</p>
+        <p v-else class="text-3xl mb-4">Товар в пути</p>
         <div class="mb-4 md:mb-8" v-html="product.description"></div>
         <template v-if="!product.is_in_stock">
           <Button class="btnLink" label="Нет в наличии"/>
@@ -82,10 +83,10 @@ useSeoMeta({
           <Button class="btnBlue "   label="В пути"/>
         </template>
         <div v-else class="flex gap-3 flex-wrap">
-          <a class="w-full md:w-auto block" :href="product.ozon_link">
+          <a v-if="product.ozon_link" class="w-full md:w-auto block" :href="product.ozon_link">
             <Button class="btnBlue px-8 w-full" label="Купить на Ozon"/>
           </a>
-          <a class="w-full md:w-auto block" :href="product.wb_link">
+          <a v-if="product.wb_link" class="w-full md:w-auto block" :href="product.wb_link">
           <Button class="btnLink px-8 w-full"  text label="Купить на WB"/>
           </a>
         </div>
