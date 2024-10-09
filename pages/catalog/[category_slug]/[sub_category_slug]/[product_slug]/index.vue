@@ -74,7 +74,7 @@ useSeoMeta({
 <!--        <p class="text-xs text-gray-300 mb-2">Рекомендованная цена</p>-->
 
         <p v-if="parseInt(product.show_price) > 0" class="text-3xl mb-4">{{product.show_price}} ₽</p>
-        <p v-else class="text-3xl mb-4">Товар в пути</p>
+        <p v-else class="text-3xl mb-4">Ожидается поступление</p>
         <div class="mb-4 md:mb-8" v-html="product.description"></div>
         <template v-if="!product.is_in_stock">
           <Button class="btnLink" label="Нет в наличии"/>
