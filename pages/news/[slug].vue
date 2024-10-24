@@ -4,6 +4,15 @@ const route = useRoute()
 const { data:news_item, pending:is_loading, refresh } = await useFetch(config.public.APIURL + `/api/news/all/${route.params.slug}`)
 const {data:news, fetchData:fetchNews} = useHttp(`/api/news/index?random=random`)
 await fetchNews()
+
+console.log(news_item)
+
+useSeoMeta({
+  title: news_item.value.page_title || 'Felfri - техника для дома',
+  ogTitle: news_item.value.page_title || 'Felfri - техника для дома',
+  description: news_item.value.page_description || 'Felfri - техника для дома',
+  ogDescription: news_item.value.page_description || 'Felfri - техника для дома',
+})
 </script>
 
 <template>
