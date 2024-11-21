@@ -1,9 +1,15 @@
 <script setup lang="ts">
 const route = useRoute()
-const {data:product, fetchData} = useHttp(`/api/shop/product/${route.params.product_slug}`)
+const {data:product,error, fetchData} = useHttp(`/api/shop/product/${route.params.product_slug}`)
+
 await fetchData()
+if (error.value) {
+  throw createError({statusCode: 404, statusMessage: 'Страница не найдена', fatal: true})
+}
 
-
+if (route.params.sub_category_slug !== product.value.subcat_slug) {
+  throw createError({statusCode: 404, statusMessage: 'Страница не найдена', fatal: true})
+}
 const images = ref([])
 const selectedImgIndex = ref(0)
 
@@ -70,7 +76,7 @@ useSeoMeta({
 <!--            </Galleria>-->
           </div>
       <div class="col-12 md:col-6 pl-2 md:pl-4 lg:pl-8 ">
-        <p class="text-3xl md:text-5xl mb-4 ">{{product.name}}</p>
+        <h1 class="text-3xl md:text-5xl mb-4 ">{{product.name}}</h1>
 <!--        <p class="text-xs text-gray-300 mb-2">Рекомендованная цена</p>-->
 
         <p v-if="parseInt(product.show_price) > 0" class="text-3xl mb-4">{{product.show_price}} ₽</p>
@@ -128,7 +134,8 @@ useSeoMeta({
         </div>
 
         <template v-if="product.youtube_embed_code">
-          <iframe class="video" :src="`https://www.youtube.com/embed/${product.youtube_embed_code}`" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<!--          <iframe class="video" :src="`https://www.youtube.com/embed/${product.youtube_embed_code}`" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>-->
+          <iframe class="video" :src="`https://vk.com/video_ext.php?${product.youtube_embed_code}&hd=2&js_api=1`"  allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen ></iframe>
         </template>
 
 

@@ -20,6 +20,7 @@ import OverlayPanel from 'primevue/overlaypanel';
 import Sidebar from 'primevue/sidebar';
 import FileUpload from 'primevue/fileupload';
 import Carousel from 'primevue/carousel';
+import InputNumber from 'primevue/inputnumber';
 
 export default defineNuxtPlugin(nuxtApp => {
     nuxtApp.vueApp.use(PrimeVue, {ripple: false});
@@ -43,6 +44,8 @@ export default defineNuxtPlugin(nuxtApp => {
     nuxtApp.vueApp.component('Sidebar', Sidebar)
     nuxtApp.vueApp.component('FileUpload', FileUpload)
     nuxtApp.vueApp.component('Carousel', Carousel)
+    nuxtApp.vueApp.component('InputNumber', InputNumber)
+
 
 
     nuxtApp.vueApp.directive('tooltip', Tooltip)

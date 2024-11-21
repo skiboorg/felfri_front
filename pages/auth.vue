@@ -12,6 +12,8 @@ const errors = ref('')
 const visibleForm = ref('login')
 const loading = ref(false)
 const is_registered = ref(false)
+const codeSend = ref(false)
+const otp = ref(null)
 const loginData = reactive({
   phone:null,
   password:null
@@ -21,7 +23,7 @@ const registerData = reactive({
   phone:null,
   email:null,
   password:null,
-  password1:null
+  password1:null,
 })
 
 const can_login = computed(()=>{
@@ -49,6 +51,11 @@ const login = async ()=>{
     loading.value = false
   }
 }
+const sendCode = async ()=>{
+  codeSend.value = true
+  const result = await $api(`/api/user/send_code?phone=${registerData.phone}`)
+  console.log(result)
+}
 const register = async ()=>{
   errors.value = ''
   loading.value = true
@@ -68,12 +75,6 @@ const register = async ()=>{
     }
     loading.value = false
   }
-
-
-
-
-
-
 }
 
 </script>
@@ -98,17 +99,31 @@ const register = async ()=>{
   <div class="auth-form" v-if="visibleForm==='register'">
 
   <p class="text-4xl font-medium mb-4 text-center">Регистрация аккаунта</p>
-  <InputText v-model="registerData.fio" placeholder="ФИО*" class="w-full mb-3" />
+    <template v-if="codeSend">
+      <p class="text-2xl text-center mb-3">Введите код подтверждения</p>
+      <InputNumber  class="w-full mb-3" input-class="text-center" v-model="otp" inputId="withoutgrouping" :useGrouping="false" />
+      <p v-if="errors" class="text-red-500 mb-3 font-bold text-center">{{errors}}</p>
+      <p v-if="is_registered" class="text-green-500 mb-3 font-bold text-center">Успешная регистрация</p>
+      <Button v-if="!is_registered" label="Регистрация" :loading="loading" :disabled="!can_register"  @click="register"  class="w-full btnBlue mb-3"/>
+    </template>
+    <template v-else>
 
-    <InputMask v-model="registerData.phone" class="w-full mb-3" mask="+7 (999) 999-99-99" placeholder="+7 (999) 999-99-99" />
-  <InputText v-model="registerData.email" placeholder="Email" class="w-full mb-3" />
-  <InputText v-model="registerData.password" placeholder="Пароль*" class="w-full mb-3" type="password" />
-  <InputText v-model="registerData.password1" placeholder="Повторите пароль*" class="w-full mb-3" type="password"/>
-    <p v-if="errors" class="text-red-500 mb-3 font-bold text-center">{{errors}}</p>
-    <p v-if="is_registered" class="text-green-500 mb-3 font-bold text-center">Успешная регистрация</p>
-  <Button v-if="!is_registered" label="Регистрация" :loading="loading" :disabled="!can_register"  @click="register"  class="w-full btnBlue mb-3"/>
-  <p class="font-bold text-sm text-black-alpha-30 text-center  ">Уже есть аккаунт?
-    <span class="text-primary cursor-pointer" @click="visibleForm='login'">Войти</span></p>
+      <InputText v-model="registerData.fio" placeholder="ФИО*" class="w-full mb-3" />
+
+      <InputMask v-model="registerData.phone" class="w-full mb-3" mask="+7 (999) 999-99-99" placeholder="+7 (999) 999-99-99" />
+      <InputText v-model="registerData.email" placeholder="Email" class="w-full mb-3" />
+      <InputText v-model="registerData.password" placeholder="Пароль*" class="w-full mb-3" type="password" />
+      <InputText v-model="registerData.password1" placeholder="Повторите пароль*" class="w-full mb-3" type="password"/>
+
+<!--      <Button  label="Получить код" :loading="loading" :disabled="!can_register"  @click="sendCode"  class="w-full btnBlue mb-3"/>-->
+      <p v-if="errors" class="text-red-500 mb-3 font-bold text-center">{{errors}}</p>
+      <p v-if="is_registered" class="text-green-500 mb-3 font-bold text-center">Успешная регистрация</p>
+      <Button v-if="!is_registered" label="Регистрация" :loading="loading" :disabled="!can_register"  @click="register"  class="w-full btnBlue mb-3"/>
+      <p class="font-bold text-sm text-black-alpha-30 text-center  ">Уже есть аккаунт?
+        <span class="text-primary cursor-pointer" @click="visibleForm='login'">Войти</span></p>
+    </template>
+
+
 </div>
 </div>
 </template>
