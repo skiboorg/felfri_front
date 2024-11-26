@@ -89,11 +89,12 @@ useSeoMeta({
           <Button class="btnBlue "   label="В пути"/>
         </template>
         <div v-else class="flex gap-3 flex-wrap">
-          <a v-if="product.ozon_link" :id="route.params.product_slug + '_ozon'" class="w-full md:w-auto block" :href="product.ozon_link">
-            <Button  class="btnBlue px-8 w-full" label="Купить на Ozon"/>
+          <a v-if="product.ozon_link" :id="route.params.product_slug + '_ozon'" class="p-button p-component p-button-text btnLink btnBlue w-full md:w-auto block" :href="product.ozon_link">
+          Купить на Ozon
           </a>
-          <a v-if="product.wb_link" :id="route.params.product_slug + '_wb'" class="w-full md:w-auto block" :href="product.wb_link">
-          <Button class="btnLink px-8 w-full"  text label="Купить на WB"/>
+          <a v-if="product.wb_link" :id="route.params.product_slug + '_wb'" class="p-button p-component p-button-text btnLink px-8 w-full md:w-auto block" :href="product.wb_link">
+
+            Купить на WB
           </a>
         </div>
 
