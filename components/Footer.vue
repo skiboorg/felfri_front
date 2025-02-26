@@ -32,11 +32,13 @@
         </div>
       </div>
       <div class="separator mb-4"></div>
-      <div class="flex justify-content-center align-items-center">
-        <p>© FELFRI 2024. Все права защищены</p>
-<!--        <p>Обработка персональных данных</p>-->
-<!--        <a href="#">Политика конфиденциальности</a>-->
+      <div class="flex justify-content-between align-items-center">
+        <p>© FELFRI 2025. Все права защищены</p>
+        <a href="#" download>Пользовательское соглашение</a>
+        <a  href="#" download>Политика конфиденциальности</a>
+
       </div>
+
     </div>
   </footer>
 </template>

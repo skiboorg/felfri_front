@@ -13,6 +13,7 @@ const visibleForm = ref('login')
 const loading = ref(false)
 const is_registered = ref(false)
 const codeSend = ref(false)
+const agree = ref(false)
 const otp = ref(null)
 const loginData = reactive({
   phone:null,
@@ -30,7 +31,7 @@ const can_login = computed(()=>{
   return !!loginData.phone && !!loginData.password
 })
 const can_register = computed(()=>{
-  return !!registerData.phone && !!registerData.password && !!registerData.password1 && !!registerData.fio && registerData.password === registerData.password1
+  return !!agree.value && !!registerData.phone && !!registerData.password && !!registerData.password1 && !!registerData.fio && registerData.password === registerData.password1
 })
 
 const login = async ()=>{
@@ -104,6 +105,7 @@ const register = async ()=>{
       <InputNumber  class="w-full mb-3" input-class="text-center" v-model="otp" inputId="withoutgrouping" :useGrouping="false" />
       <p v-if="errors" class="text-red-500 mb-3 font-bold text-center">{{errors}}</p>
       <p v-if="is_registered" class="text-green-500 mb-3 font-bold text-center">Успешная регистрация</p>
+
       <Button v-if="!is_registered" label="Регистрация" :loading="loading" :disabled="!can_register"  @click="register"  class="w-full btnBlue mb-3"/>
     </template>
     <template v-else>
@@ -114,11 +116,15 @@ const register = async ()=>{
       <InputText v-model="registerData.email" placeholder="Email" class="w-full mb-3" />
       <InputText v-model="registerData.password" placeholder="Пароль*" class="w-full mb-3" type="password" />
       <InputText v-model="registerData.password1" placeholder="Повторите пароль*" class="w-full mb-3" type="password"/>
-
+      <div class="flex align-items-center mb-4">
+        <Checkbox v-model="agree" inputId="ingredient1" name="pizza" value="Cheese" />
+        <label for="ingredient1" class="ml-2">Я согласен с <a class="link" href="#" download>пользовательским соглашением</a>  и
+          <a class="link" href="#" download>политикой конфиденциальности</a> </label>
+      </div>
 <!--      <Button  label="Получить код" :loading="loading" :disabled="!can_register"  @click="sendCode"  class="w-full btnBlue mb-3"/>-->
       <p v-if="errors" class="text-red-500 mb-3 font-bold text-center">{{errors}}</p>
       <p v-if="is_registered" class="text-green-500 mb-3 font-bold text-center">Успешная регистрация</p>
-      <Button v-if="!is_registered" label="Регистрация" :loading="loading" :disabled="!can_register"  @click="register"  class="w-full btnBlue mb-3"/>
+      <Button v-if="!is_registered " label="Регистрация" :loading="loading" :disabled="!can_register"  @click="register"  class="w-full btnBlue mb-3"/>
       <p class="font-bold text-sm text-black-alpha-30 text-center  ">Уже есть аккаунт?
         <span class="text-primary cursor-pointer" @click="visibleForm='login'">Войти</span></p>
     </template>
