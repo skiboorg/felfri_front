@@ -50,7 +50,9 @@ const responsiveOptions = ref([
     <Galleria v-model:activeIndex="activeIndex" class="mb-6 md:mb-8" :value="images" :autoPlay="true"  :circular="true" containerClass="gallery"
               :showItemNavigators="false" :showThumbnails="false" :showItemNavigatorsOnHover="false" :showIndicators="true">
       <template #item="slotProps">
-        <div class="banner">
+
+        <div class="banner" :class="slotProps.item.url ? 'cursor-pointer' : ''" @click="slotProps.item.url ? $router.push(slotProps.item.url): null">
+
           <div class="arrows">
           <span class="arrow prev rotate-180" @click="changeSlide('dec')">
             <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">

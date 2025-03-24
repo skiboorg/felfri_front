@@ -79,22 +79,25 @@ useSeoMeta({
         <h1 class="text-3xl md:text-5xl mb-4 ">{{product.name}}</h1>
 <!--        <p class="text-xs text-gray-300 mb-2">Рекомендованная цена</p>-->
 
-        <p v-if="parseInt(product.show_price) > 0" class="text-3xl mb-4">{{product.show_price}} ₽</p>
-        <p v-else class="text-3xl mb-4">Ожидается поступление</p>
+<!--        <p v-if="parseInt(product.show_price) > 0" class="text-3xl mb-4">{{product.show_price}} ₽</p>-->
+<!--        <p v-else class="text-3xl mb-4">Ожидается поступление</p>-->
         <div class="mb-4 md:mb-8" v-html="product.description"></div>
-        <template v-if="!product.is_in_stock">
-          <Button class="btnLink" label="Нет в наличии"/>
-        </template>
-        <template v-else-if="product.is_arrive">
-          <Button class="btnBlue "   label="В пути"/>
-        </template>
-        <div v-else class="flex gap-3 flex-wrap">
-          <a v-if="product.ozon_link" :id="route.params.product_slug + '_ozon'" class="p-button p-component p-button-text btnLink btnBlue w-full md:w-auto block" :href="product.ozon_link">
-          Купить на Ozon
+<!--        <template v-if="!product.is_in_stock">-->
+<!--          <Button class="btnLink" label="Нет в наличии"/>-->
+<!--        </template>-->
+<!--        <template v-else-if="product.is_arrive">-->
+<!--          <Button class="btnBlue "   label="В пути"/>-->
+<!--        </template>-->
+        <div class="flex gap-3 flex-wrap">
+          <a  :id="route.params.product_slug + '_ozon'"
+              class="p-button p-component p-button-text btnLink btnBlue w-full md:w-auto block"
+              href="https://www.ozon.ru/seller/felfri-802356/products/?miniapp=seller_802356">
+          Мы на Ozon
           </a>
-          <a v-if="product.wb_link" :id="route.params.product_slug + '_wb'" class="p-button p-component p-button-text btnLink px-8 w-full md:w-auto block" :href="product.wb_link">
-
-            Купить на WB
+          <a  :id="route.params.product_slug + '_wb'"
+              class="p-button p-component p-button-text btnLink px-8 w-full md:w-auto block"
+              href="https://www.wildberries.ru/brands/310412467-felfri">
+            Мы на WB
           </a>
         </div>
 
